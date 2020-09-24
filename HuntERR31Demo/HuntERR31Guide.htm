@@ -1,0 +1,3169 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta name="keywords" content="Error Handling;Errors;VB;Urfin Jus;HuntERR;  On Error Go To; ADO; VB; MS Visual Basic 6.0; VB6 ">
+	<meta name="description" content="HuntERR: Error Handling Library for Visual Basic from Urfin Jus (www.urfinjus.net)"> 
+	<meta name="product"content="HuntERR 3.1">
+	<title>Error Handling in VB: HuntERR Guide</title> 
+</head>
+<!-- <link rel="stylesheet" type="text/css" href="ujHR.css"> -->
+<style type="text/css">
+BODY
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    FONT-SIZE: 8pt;
+    BACKGROUND: #ffffff;
+    PADDING-BOTTOM: 2px;
+    COLOR: #000000;
+    TEXT-INDENT: 0pt;
+    PADDING-TOP: 2px;
+    FONT-FAMILY: Verdana, Arial, sans-serif;
+    TEXT-ALIGN: justify
+}
+DIV
+{
+    BORDER-RIGHT: #999999 2px;
+    PADDING-RIGHT: 0px;
+    BORDER-TOP: #999999 2px;
+    PADDING-LEFT: 0px;
+    BACKGROUND-IMAGE: none;
+    BORDER-LEFT: #999999 2px;
+    WIDTH: 90%;
+    BORDER-BOTTOM: #999999 2px;
+    BACKGROUND-REPEAT: repeat
+}
+H1
+{
+    FONT-WEIGHT: bold;
+    COLOR: royalblue;
+    FONT-FAMILY: Tahoma, Arial, Verdana, Helvetica, sans-serif;
+    TEXT-ALIGN: center
+}
+H2
+{
+    MARGIN-TOP: 6px;
+    FONT-WEIGHT: 600;
+    FONT-SIZE: 14pt;
+    MARGIN-BOTTOM: 3px;
+    COLOR: royalblue;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+H3
+{
+    MARGIN-TOP: 16px;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11pt;
+    MARGIN-BOTTOM: 3px;
+    COLOR: royalblue;
+    FONT-FAMILY: Arial, sans-serif, Verdana
+}
+H4
+{
+    MARGIN-TOP: 0pt;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    MARGIN-BOTTOM: 0px;
+    PADDING-BOTTOM: 0px;
+    COLOR: black;
+    PADDING-TOP: 0px;
+    FONT-FAMILY: Verdana, Arial, sans-serif
+}
+UL P
+{
+    MARGIN-LEFT: 0em
+}
+OL P
+{
+    MARGIN-LEFT: 0em
+}
+DL P
+{
+    MARGIN-LEFT: 0em
+}
+P
+{
+    MARGIN-TOP: 0px;
+    FONT-SIZE: 8pt;
+    PADDING-BOTTOM: 3pt;
+    LINE-HEIGHT: normal;
+    PADDING-TOP: 3px;
+    TEXT-ALIGN: justify
+}
+DL
+{
+    MARGIN-TOP: 0em
+}
+DD
+{
+    MARGIN-BOTTOM: 0em;
+    MARGIN-LEFT: 1.9em
+}
+DT
+{
+    MARGIN-TOP: 0.6em
+}
+UL
+{
+    MARGIN-TOP: 0.6em;
+    MARGIN-BOTTOM: 0em
+}
+OL
+{
+    MARGIN-TOP: 0.6em;
+    MARGIN-BOTTOM: 0em
+}
+OL
+{
+    MARGIN-LEFT: 3.6em
+}
+UL
+{
+    MARGIN-LEFT: 1.9em;
+    LIST-STYLE-TYPE: disc
+}
+LI
+{
+    MARGIN-BOTTOM: 0.6em;
+    TEXT-ALIGN: justify
+}
+UL OL
+{
+    MARGIN-BOTTOM: 0.6em;
+    LIST-STYLE-TYPE: lower-alpha;
+    pre: .6em
+}
+OL OL
+{
+    MARGIN-BOTTOM: 0.6em;
+    LIST-STYLE-TYPE: lower-alpha;
+    pre: .6em
+}
+PRE
+{
+    MARGIN-TOP: 0px;
+    FONT-WEIGHT: normal;
+    MARGIN-BOTTOM: 0px;
+    FONT-STYLE: normal;
+    FONT-FAMILY: Courier New, Courier, mono;
+    FONT-VARIANT: normal
+}
+CODE
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 8pt;
+    COLOR: black;
+    FONT-FAMILY: Courier New, Courier, mono
+}
+TABLE
+{
+    BACKGROUND-IMAGE: none;
+    MARGIN-BOTTOM: 0em;
+    BACKGROUND-REPEAT: repeat
+}
+TH
+{
+    PADDING-RIGHT: 8px;
+    PADDING-LEFT: 8px;
+    FONT-SIZE: 8pt;
+    BACKGROUND: #cccccc;
+    PADDING-BOTTOM: 4px;
+    VERTICAL-ALIGN: bottom;
+    PADDING-TOP: 4px;
+    TEXT-ALIGN: left
+}
+TD
+{
+    PADDING-RIGHT: 8px;
+    PADDING-LEFT: 8px;
+    FONT-SIZE: 8pt;
+    BACKGROUND-IMAGE: none;
+    PADDING-BOTTOM: 4px;
+    VERTICAL-ALIGN: top;
+    PADDING-TOP: 4px;
+    BACKGROUND-REPEAT: repeat
+}
+BLOCKQUOTE
+{
+    MARGIN: 0.6em 3.8em
+}
+SUP
+{
+    FONT-SIZE: smaller;
+    TEXT-DECORATION: none
+}
+A:link
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: steelblue;
+    TEXT-DECORATION: none
+}
+A:hover
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: mediumturquoise;
+    TEXT-DECORATION: none
+}
+DIV P.Contents
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: mediumaquamarine;
+    FONT-FAMILY: Tahoma, Arial
+}
+A:visited
+{
+    FONT-WEIGHT: bold;
+    COLOR: steelblue;
+    TEXT-DECORATION: none
+}
+
+</style>
+
+<body bgcolor="#ffffff"  leftmargin="40pt" rightmargin="40pt">
+<p>The latest version of this document and full HuntERR download package is located 
+	<A href="http://www.urfinjus.net"> here</a>.
+	<br>Your feedback is welcome:<A href="mailto:feedback@urfinjus.net?subject=HuntERR"> feedback@urfinjus.net</a>
+<HR SIZE="2"  width="100%" align="left">
+
+
+
+	<A Name="Top"></A>
+	<center>
+	<font face="Arial Black" size="10">Hunt<i>ERR</i></font>
+	<h2>Error-Handling Solution For Visual Basic</h2>
+	<h3>Version 3.1</h3>
+	<h3><i>Programmer's Guide</i></h3>
+	<br>&nbsp;
+		Copyright <STRONG>URFIN JUS</STRONG> <a href="http://www.urfinjus.net">(www.urfinjus.net)</a>, 2001-2002. 
+			<br>&nbsp;
+		    <br>All rights reserved.
+	</center> 
+	<p>&nbsp;
+
+		
+<A Name="Contents"/>
+<h2>Contents</h2>
+ <p><a href="#Introduction">1. Introduction</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#WhatIsHR">          1.1. What is HuntERR?</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#HRStarted">         1.2. How It Started</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#WhatEHShouldDo">    1.3. What Error Handler Should Do?</a>
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#UnwindStack">       1.4. Unwinding the Call Stack</a>
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#ErrHSeq">           1.5. Error-Handling Sequence</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#Exceptions">        1.6. Exceptions</a>
+	<font color=red size="0"><EM>New</EM></font>
+
+ <br><a href="#HowItWorks">  2. Hunt<i>ERR</i>: How It Works</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#MethodTemplate">     2.1. Procedure Template</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#ErrorMap">           2.2. Error Map</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#ErrorIn">            2.3. <EM>ErrorIn</EM> Super-Function</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#ErrorInSimpleCase">  2.4. Example with <EM>ErrorIn</EM></a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#Check">              2.5. Raising Errors And Exceptions: First Look at <i>Check</i> Sub</a>
+ 
+ <br><a href="#ErrorRes">    3. Error Resolution</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#PersistReport">    3.1. Persisting Error Report</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#Nore-raising">      3.2. Handling Without Re-raising</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#ResExeApps">       3.3. Error Resolution in EXE Applications</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#ResCOMServers">    3.4. Error Resolution in COM Servers</a>
+
+ <br><a href="#Advanced">    4. Advanced Features</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#APIErrors">        4.1. API Errors</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#ADOErrors">        4.2. ADO Errors</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#ADOTrans">         4.3. ADO Transactions</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#COMPTrans">        4.4. COM+ Transactions</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#WebInfo">          4.5. WEB Request Information</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#SysExceptions">    4.6. System Exceptions</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#Extensions">       4.7. HuntERR Extensions</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#ErrPreserve">      4.8. Preserving Error Information</a>
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#LongStrings">      4.9. Long Strings, XML Formatting</a>
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#FileClose">        4.10. Closing Files</a>
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#ReleaseObj">       4.11. Releasing Objects</a>
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#StopOnErr">        4.12. Stopping On Error in IDE</a>
+	<font color=red size="0"><EM>New</EM></font>
+ 
+<br><a href="#CheckDetailed">5. <EM>Check</EM> Sub: Detailed Look </a>         
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#CheckDecl">        5.1. <EM>Check</EM> Declaration and Overview</a>        
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#CheckPrmDescr">    5.2. Parameterized Description</a>        
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#CheckAccum">       5.3. Accumulating Messages</a> 
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#CheckAddnl">       5.4. Sending Additional Tip to HandleError</a> 
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#CheckMsgSrc">      5.5. MessageSource Object</a>                 
+	<font color=red size="0"><EM>New</EM></font>
+
+
+<br><a href="#UseHuntERR">  6. Using HuntERR</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#WellBehCmp">       6.1. Well Behaved Components</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#MidTier">          6.2. Shift to the Middle Tier</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#ArchDesign">       6.3. Architecture Design Tips</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#Wrapper">          6.4. Example: Creating a Wrapper</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#ProjSetup">        6.5. Setting Up Your Projects</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#CodingTips">       6.6. A Few Coding Tips</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#AddIn">            6.7. HuntERR Add-In for Visual Basic</a>
+
+ <br><a href="#Final"> 7. Final Thoughts</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#BugsErrors">    7.1. Bugs, Errors and Application Malfunctioning</a>
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#BugsErrors">    7.2. What will happen</a>
+ <br><a href="#Appends">Appendixes</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#QkStart">       A1. HuntERR Quick Start Guide</a>
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#RlsByRef">      A2. Releasing ByRef Object Parameters - When It Doesn't Work</a>
+	<font color=red size="0"><EM>New</EM></font>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="#V30New">        A3. Version 3.0 New Features</a>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#V31New">        A4. Version 3.1 New Features</a>
+<p>&nbsp;
+<p><font color=red size="0"><EM>New</EM></font> <EM>- Section added in version 3.1.</EM>
+
+<HR SIZE="2"  width="100%" align="left">
+
+<br>&nbsp;
+<A Name="Introduction"/>
+<h2>Introduction</h2>		
+<A Name="WhatIsHR"/>
+<h3>What is Hunt<i>ERR</i>?</h3>
+<p>If you are already familiar with HuntERR and have seen previous versions  
+then we are glad to meet you again! If you are new to <STRONG>HuntERR</STRONG> 
+- then welcome, fellow developer! Before you engage into reading this lengthy 
+document we would like to give you a clue on what this is all about. 
+<p>Just imagine a VB application that tries to execute a SQL statement in database, 
+fails, and logs the following error report to text file or database table:
+
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+Invalid column name 'X'. 
+  Time='04/18/02 09:13:56' App='MyApp' ADO-version='2.6' Computer='Solo' 
+  Method: ExecUpdateSQL 
+  Number: -2147217900 = &H80040E14 = vbObjectError + 3604 = ERRMAP_APP_FIRST - 1594 
+  Source: Microsoft OLE DB Provider for SQL Server 
+  Description: Invalid column name 'X'.
+  ADO Info: 
+    ADO Version:   2.6
+    DbObject:      Connection
+    Conn. String: 'Provider=SQLOLEDB.1;Server=;Password=;User ID=sa;Initial Catalog=Northwind;
+    Conn. State:   adStateOpen
+    Error:         Invalid column name 'X'.
+    Error:         Invalid column name 'Y'.
+    Error:         Invalid column name 'Z'.
+  Call Stack: ExecUpdateSQL(SQL='Update Customers Set X = Y WHERE Z = 1') ----------------
+    Transaction: Attempt to call RollbackTrans succeeded
+    Connection: Attempt to call Close succeeded
+</pre></code>
+</td></tr></table>
+
+	<p>You probably think - "not bad, but so what - just a big bunch of code in error handler 
+	to build all this stuff. Are going to teach me how to format a text like this
+	in error handler?". Certainly not. The thing is, the error handler in method executing SQL
+	is quite simple:
+	
+
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Sub</font> ExecUpdateSQL(<font color="#000080">ByVal</font> SQL <font color="#000080">As</font> <font color="#000080">String</font>)
+    <font color="#000080">Dim</font> Conn <font color="#000080">As</font> ADODB.Connection
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+    <font color="#000080">Set</font> Conn = New ADODB.Connection
+    <font color="#000080">With</font> Conn
+        .Open CONNECT_STRING
+        .BeginTrans
+        .Execute SQL
+        .CommitTrans
+        .Close
+    <font color="#000080">End</font> <font color="#000080">With</font>
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+    ErrorIn <font color="#808080">&quot;ExecUpdateSQL(SQL)&quot;</font>, SQL, EA_DFTRBKCLS, Conn
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+
+<p>That's it - just one simple line in error handler - and you have the error report above! 
+Now look again at error report. This one-line handler managed to report the location of error, 
+its number and description, retrieve and report all ADO errors 
+from <EM>Connection.Errors</EM> collection, list some system and 
+environment information, report the connection string used,  report the name of method and its parameter 
+value (executed SQL statement), then it also rolled back the transaction and closed the 
+connection. Not bad for one line, isn't it? 
+<p>And it can be even more - error handlers in 
+methods that called this failed method would add their names with list of their parameters
+values to error report, so it would finally include full stack trace, up to original method
+that started the operation, like <EM>cmdDoStuff_Click</EM>!
+<p>As you see now, all this activity was performed by function <EM>ErrorIn</EM> 
+implemented by <STRONG>HuntERR</STRONG> library. The wonderful thing is that HuntERR is 
+implemented as VB standard module, which you include into your VB project. 
+No compiled DLLs, no monstrous system services - just plain VB code 
+packed into <EM>.Bas</EM> module. And it is free. You've just seen that it can do 
+something real - it is more that just a fancy code snippet. 
+<p>Interested? Let's go in for details. We hope you see now that this document is worth 
+spending some of your time. We promise, you will not be disappointed. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="HRStarted"/>
+<h3>1.1. How It Started</h3>
+<p>Programmers who are with Visual Basic for a long time have been witnessing its fascinating 
+transformation from a simple scripting tool into a powerful enterprise 
+development environment. And while we observed many dramatic changes in VB, one particular 
+area we think was falling more and more behind. This area is error handling. 
+<p>VB itself didn't deliver much new support at the language level – 
+<EM>Err</EM> object, and <EM>On Error...</EM> 
+statement had been there for years, providing just basic error-catching functionality.  
+Also not so much was added in programming practices and techniques. 
+Authors in published articles and code snippets treated error handling 
+as sort of sideline issue – at best error handler was there with standard "<EM>MsgBox Err.Description</EM>", 
+with nothing more to say about it. We think that general attitude was 
+that error is something that should never 
+happen in released system, and if it happens during development – here is the 
+debugger, go step-by-step to find and fix it. And it worked quite well this way for a while.  
+<p>However at some point things began to change dramatically. VB started to be used for enterprise 
+development, to create components working on remote servers, where no step-by-step 
+debugging was available. During development it has become a difficult and sometimes 
+impossible task to reproduce on developer's computer the error that happened on server. 
+<p>The other big change was that applications have become multi-tiered, 
+distributed and heterogeneous, built from numerous 
+diverse components working together. As a result, even if a component was bug-free
+(hardly possible as we know but let's imagine for a moment such a 
+miracle) – still it could crash in target "production" environment 
+because of external factors like invalid data from other components, 
+or "inter-components" communication failure. 
+<p>It was becoming more and more apparent (at least in our own experience) that old approaches and 
+attitudes towards errors wouldn't work in enterprise development. Error was no longer a design 
+accident, a bug to be quickly exterminated and forgotten. It has become more serious and more 
+"normal" problem, with which application has to deal on a regular basis, anticipating it as an event 
+that can happen at any time in any place. Application should always be ready to face the error,
+and not as a killing disaster, but as normal event, for which it is prepared by programmer.  
+And even if it is doomed to crash, it should create and save the last message 
+to the developer with as much information as possible about what happened and what killed it. 
+It should crash decently. 
+<p>There were, and there exist now some commercial third-party solutions that 
+try to deal with the problem of error handling, each in its own way. 
+We found these solutions absolutely unsatisfactory, and unable to solve even the basic problems
+faced by VB developer. What confirms this view is the fact that these systems 
+didn't gain popularity among VB programmers. We think that the biggest problems with 
+them is that they are too invasive - they add too much to your mainstream code, drastically
+altering it and damaging its clarity and readability. 	
+<p>So programmers continued to use some homemade error-handling snippets built 
+specifically for particular applications. So did we, but at some point we decided to stop, think,
+and design something really robust, non-invasive, and reusable. 
+<p>That's how <STRONG>Hunt<EM>ERR</EM></STRONG><sup>(tm)</sup> was started. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+	
+<A Name="WhatEHShouldDo"/>
+<h3>1.3. What Error Handler Should Do?</h3>
+<p>Let's first formulate what we normally should do in error handler. The first thing is of course 
+log the error, including its number, source and description. Additionally error handler may report
+module/method name, values of local and global variables, and even method's current parameter values. 
+Sometimes applications show this information immediately to user, but we think it's reasonable
+thing to do only if user is a developer himself testing the application. 
+<p>Most existing error-handling systems consider at this point their error-handling job done. 
+They cannot do anything more, except maybe some fancy stuff like automatic email to developer. 
+This is definitely not enough. The story only begins here.  
+<p>First, sometimes <EM>Err.Description</EM> field doesn't contain all error information. Code in 
+error handler has to make additional efforts to retrieve this information from some external sources. 
+It can be description of an API error, or additional messages stored in <EM>Connection.Errors</EM> 
+collection. It also may be information from other COM servers that application uses. 
+The other thing to do in error handler for database applications is to abort transaction if 
+there is one in progress. And finally, we should do some clean-up - release all the temporarily 
+used resources, close connections if they were opened in this method, and probably release 
+local object instances.
+<p>All this doesn't seem too much to do, but additional restriction is that this must be done
+safely, without provoking any more errors. In reality all this  sometimes adds up to 
+considerable amount of code in error handler. The problem is not only that error-handling
+code adds significantly to number of code lines in your application. 
+The biggest problem is that this code is error-prone itself. 
+There is always a possibility that when time comes to handle error 
+this code will either not do what it is supposed to do, or even 
+crash with another error, which is a complete disaster. This error-handling code should be 
+put into almost every method throughout the application,  
+and it is really difficult to test - it is not a part of mainstream
+business logic, so it can hardly be handled by QA department. Considering these facts
+proper and full error handling becomes a serious issue. The only solution would be to have a few, 
+preferably one or two pre-coded and tested methods that can take care of all error-handling 
+business in every error handler, with a very low possibility of failure without any testing. 
+ErrorIn is such a method.       
+<p><EM>ErrorIn</EM> method doesn't do any magic, anything that cannot be coded 
+directly in a few lines in error handler. It's just powerful pre-coded and pre-tested method that allows 
+you to shrink error handler into one line. This greatly improves your chance that error handler 
+wouldn't fail. Another important result is that error handlers are compact, and mainstream
+logic is not overshadowed by huge error-handling blocks. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="UnwindStack"></A>
+<h3>1.4. Unwinding the Call Stack</h3>
+<p>Now having discussed what should be done immediately in error handler of the failed method, 
+let's discuss the other important question: What to do next? After we have done all these things,
+what should the application do? Here is the standard situation.
+<p>Suppose you method <EM>A</EM> in your application is invoked by some external event. 
+Method <EM>A</EM> calls method <EM>B</EM>,
+which in turn calls method <EM>C</EM>, and so on until method <EM>Y</EM> calls <EM>Z</EM>. 
+Method <EM>Z</EM> fails, error is caught and 
+processed in error handler in <EM>Z</EM>. How this error-handling code will finish? The problem is that there 
+is a line of methods from <EM>A</EM> to <EM>Y</EM> waiting for method <EM>Z</EM> 
+to finish so they can continue with their own jobs. 
+If execution simply returns from <EM>Z</EM> and all these methods continue execution the results are 
+unpredictable, and serious damage to data and user sanity is quite possible. 
+If <EM>Z</EM> fails, all these methods MUST abandon their workflow, and immediately 
+stop doing what they were doing. Now, if it is not safe to continue in <EM>Y</EM> method, 
+then we must find a safe point, where execution CAN continue, and somehow jump there from 
+where we are - in error handler of method <EM>Z</EM>.
+<p>What can be such a safe point? Most of the time it is the exit from <EM>A</EM> method, 
+the one that was triggered by external event. For example for desktop 
+applications it can be <EM>Click</EM> event handler of a button. 
+If we exit from this method, then application continues it's message processing cycle. 
+When doing this jump to the safe point in A a good thing to do is to notify <EM>B...Y</EM> methods
+about change of plans, and to let them do necessary local clean-up if they can. 
+<p>How can we execute such a jump to this safe point? 
+There is a mechanism that implements this jump up the call stack.
+It is called <EM>unwinding</EM> the call stack. It is built into operating system. VB performs
+stack unwinding when error is thrown in code(We are not sure how much VB run-time relies 
+on this stack unwinding functionality of OS). When processing error VB doesn't 
+try to break you application in the most brutal way, 
+it just searches for the safe point to continue! VB unwinds the call stack 
+by jumping up from method to method, stopping at error handlers hoping that 
+this is the safe point, and allows your code to continue. Most of the time 
+the error handler in a method is not such a safe point, so the most natural thing 
+to do is to resume unwinding process in error handler by re-raising error. 
+However making a stop in every error handler in a call stack is a good 
+chance for each method to do the clean-up of local and temporary variables and 
+resources. Additionally each method can add some additional information to 
+error description/report, for example, its name and parameters values to make
+it easier for the developer to investigate the case. 
+<p>This is the technique used by HuntERR. After error occurs in some method, 
+error-handling code prepares initial error report, and re-raises error. 
+<EM>ErrorIn</EM> method that we've already met in error handler 
+does this automatically. Re-raising error in error handler starts 
+the process of controlled UNWINDING of the call stack. 
+Error handler in the immediate caller of the failed method catches the re-raised error and
+detects that the unwinding (propagation) process is on the 
+way, so it should simply do the necessary local clean-up, 
+and add method's signature (method name and parameters values) to error report. 
+Then it again it re-raises error resuming
+the unwind process. And so on, the unwinding continues with stopping in  
+every error handler in the call stack. <EM>ErrorIn</EM> method alone can do all 
+this job in error handlers, without any extra coding. 
+During unwinding the error information is sent in properties of <EM>Err</EM> object, with error report 
+in <EM>Description</EM> property. 
+The final goal is to arrive at safe point, which is 
+usually the top or the first method in a call stack. Here the unwinding stops, 
+we cannot re-raise error anymore. Here we do what we call Error Resolution, and 
+we discuss this topic in a separate <A HREF="#ErrorRes">chapter</A> of this document.  
+
+<A Name="ErrHSeq" />
+<h3>1.5. Error-Handling Sequence</h3>
+<p>Having discussed some general error-handling topics lets now give a general outline of
+ what happens when error occurs in code guarded by HuntERR.  
+HuntERR error-handling model implements the following steps in handling of a single error: 
+<ol>
+<li><p><STRONG>Initial Processing</STRONG> – initializing error report, 
+	collecting basic information about error itself and execution environment.  
+<li><p><STRONG>Unwinding the call stack  (Error Propagation)</STRONG> – the process of repetitive 
+    re-raising error jumping from one error handler to another in the sequence of methods in a call stack. 
+	Stack is Unwinded in the sense that execution jumps along the call stack in the reverse order
+	of nested calls that formed it, and pops methods out of the stack. 
+	Error report is sent in <EM>Description</EM> property of <EM>Err</EM> object. Error report is a multi-line
+	text with the first line being original error description. In the process of unwinding the stack 
+	HuntERR continuously appends lines with environment information to error report.
+	We can say that HuntERR "expands" original error description with additional information.
+<li><p><STRONG>Error Resolution</STRONG> – final error processing actions. 
+	Application can retry the operation, or use the alternative way of 
+	doing the failed job if it has one, or simply notify the caller component or user about the failure 
+	and log the error report. 
+</ol>
+<p>	<EM>Note: We used the term Error Propagation in earlier versions of HuntERR for the second step. 
+ We decided	to change it to Unwinding the call stack, because it is more standardized term, 
+	and probably better describes what's happenning. However we'll continue to use 
+	Propagation eventually. And HuntERR's InPropagation function is still there with the same 
+	meaning/functionality.</EM>  
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+
+<A Name="Exceptions" />
+<h3>1.6. Exceptions</h3>
+<p>Stack unwinding process we've just discussed is a powerful mechanism provided 
+by VB runtime and operating system. It is sometimes assumed that it comes into play 
+exclusively when error happens - spontaneously,  and most often with no good consequences. 
+<p>But aside from spontaneous errors application may invoke this mechanism intentionally to
+perform some smart purposeful actions. 
+Let's just look at unwinding process in the following way:
+Stack unwinding implemented by error-raising mechanism is a way of interrupting the normal
+workflow of the program, and jumping directly up along the call stack to the upper method
+in stack, with a chance to stop in every method, and perform the necessary clean-up. 
+Certainly such a neat jump may be employed somewhere, in addition to the case of disastrous 
+application failure. One obvious place where this jump can be used is user input validation.
+Validation is easy when it can be done directly in Click event handler in the form. But for
+complex applications sometimes validation methods are buried deep inside objects/method 
+hierarchy, they are sometimes part of a complex workflow. In this case interrupting the workflow, 
+cleaning-up the resources, and returning a message to user may become a really uneasy task. 
+That's where the unwinding process comes handy - just raise a custom error, and catch it in 
+the top method in a call stack. This catching method should recognize the error as "validation"
+fault, and show the appropriate message to user.    
+<p>Most of the modern languages support such a controlled jump along the call stack through 
+mechanism of Exceptions handling. (And as we see, Visual Basic supports it too!) We will use
+the term <EM>Exception</EM> for errors raised by application on purpose, using <EM>Err.Raise</EM> method, when
+no application failure occurred, but simply execution needs to "jump up" the call stack. 
+HuntERR supports Exceptions by defining a range of error numbers for them. HuntERR's
+ <EM>ErrorIn</EM> function processes exceptions in a different way than errors. As there
+ is no application failure when exception is raised, ErrorIn doesn't build error report, but
+ only makes a clean-up (aborts the transaction), and re-raises it passing it to the error
+ handler in the caller method. 
+<p>One important comment. Please don't think of exceptions as a tricky way to 
+communicate some information to the caller method or parent object. After HuntERR first release 
+some programmers were saying: "I don't need exceptions, I usually raise an event to
+show a message to user or to send some information to parent object." 
+But this is different. Exception safely 
+aborts the workflow, and unwinds the call stack jumping to the top originator method - 
+raising event doesn't do this. After returning from event handler you are still in the 
+same place with stack unchanged. 
+<p>Try Exceptions - you'll be surprised how convenient and powerful they are! Without exceptions
+you'll have to code every method with a provision that execution may be cancelled, so it must
+stop and exit, sending to its caller some return value indicating that cancellation happened. 
+And the caller must check this return value after every call, and so must do 
+it's own callers and so on. Instead of doing this you make one jump directly to your target, 
+with no provision code in methods in between. 
+<p>HuntERR provides a convenient method that makes it really easy for you to raise 
+Exceptions: it is <EM>Check Sub</EM>. We discuss all its features in a separate 
+<A HREF="#CheckDetailed">chapter</A> of this document. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+
+<A Name="HowItWorks"/>
+<h2>2. Hunt<EM>ERR</EM>: How It Works</h2>
+<p>Now let's see how all this is implemented. We'll first have a look at general error-handling
+template, then discuss in details HuntERR's core <EM>ErrorIn</EM> method, then we'll look at 
+a simple example. 
+<A Name="MethodTemplate"></A>
+<h3>2.1. Procedure Template</h3>
+<p>General schema is quite simple: all procedures have error handlers and are built similar 
+to the following template:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Private</font> <font color="#000080">Sub</font> MySub(Param1 <font color="#000080">As</font> Type1, Param2 <font color="#000080">As</font> Type2, ....)
+    <font color="#000080">On</font> <font color="#000080">Error</font> Goto errHandler
+    ........ 
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+    ErrorIn <font color="#808080">&quot;MyClass.MySub(Param1,Param2, ....)&quot;</font>, Array(Param1, Param2, ...)....
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+<p>Details may vary: <EM>Public</EM> vs. <EM>Private</EM>, <EM>Function</EM> vs. <EM>Sub</EM>, 
+parameter list, list of <EM>ErrorIn</EM> arguments, etc. But general schema is the same. 
+Most of the time just one call to <EM>ErrorIn</EM> in error handler  takes care of 
+all error-handling business. 
+<p>The rule that every method should have error handler is not absolute. 
+Trivial methods (like simple Property Get/Let/Set procedures) may be left 
+without handlers.
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="ErrorMap"></A>
+<h3>2.2. Error Map</h3>
+<p>Visual Basic defines <EM>vbObjectError</EM> constant that sets the range of error numbers available for 
+custom applications. However, if you use database 
+access with ADO, you'd better not use error numbers that immediately follow <EM>vbObjectError</EM>. 
+These numbers are used by data access components provided by Microsoft. 
+<p>To organize the error ranges and to make them easy to use by applications <STRONG>Hunt<EM>ERR</EM></STRONG> 
+declares enumeration <EM>ENUM_ERRMAP</EM>: 
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Enum</font> ENUM_ERRMAP
+        ERR_ACCUMULATE = 0                          <font color="#008000">'Check Sub accumulates messages</font>
+    ERRMAP_FIRST = ERRMAP_BASE
+    ERRMAP_RESERVED_FIRST = ERRMAP_FIRST            <font color="#008000">'Errors reserved for HuntERR and UJ apps.</font>
+       ERR_SYSEXCEPTION                             <font color="#008000">'System exception</font>
+    ERRMAP_RESERVED_LAST = ERRMAP_RESERVED_FIRST + 100
+    ERRMAP_EXC_FIRST = ERRMAP_RESERVED_LAST + 1     <font color="#008000">'Exceptions - re-raised by ErrorIn</font>
+        EXC_GENERAL = ERRMAP_EXC_FIRST              <font color="#008000">'Use it if you don't need specific number</font>
+        EXC_VALIDATION                              <font color="#008000">'User input validation exception</font>
+        EXC_MULTIPLE                                <font color="#008000">'Multiple messages in error description</font>
+        EXC_CANCELLED                               <font color="#008000">'Cancelled operation</font>
+    ERRMAP_EXC_LAST = ERRMAP_EXC_FIRST + 1000
+    ERRMAP_APP_FIRST
+        ERR_GENERAL = ERRMAP_APP_FIRST              <font color="#008000">'Use it if you don't need specific number</font>
+        <font color="#008000">'Application errors here</font>
+<font color="#000080">End</font> <font color="#000080">Enum</font>
+</pre></code>
+</td></tr></table>
+<p>Your may decide to move this enumeration to public class - in this case it will be visible 
+through COM services to  COM clients (like VBScript) and they can refer 
+to constants by their names. To do it copy the declaration to public class, and define 
+<EM>H_NOENUMS=1</EM> in conditional compilation constants. This will exclude this Enum
+in <EM>HuntERRxx.Bas</EM> module from compilation. 
+
+<p>Constant <EM>ERRMAP_FIRST</EM> sets the start of a map. Its value is set to 
+<EM>vbObjectError + 4096</EM> to move above the range used by data access components. 
+See <A href="http://support.microsoft.com/support/kb/articles/Q168/3/54.ASP" target="MS">
+http://support.microsoft.com/support/kb/articles/Q168/3/54.ASP</a>
+ for more information.  
+<p>The first range <EM>[ERRMAP_RESERVED_FIRST .. ERRMAP_RESERVED_LAST]</EM> 
+identifies error numbers reserved by  <STRONG>HuntERR</STRONG>. 
+HuntERR defines <EM>ERR_SYSEXCEPTION</EM> for system exception error 
+(see <a href="#SysExceptions">System Exceptions</a> section).  
+
+<p>The next range <EM>[ERRMAP_EXC_FIRST .. ERRMAP_EXC_LAST]</EM> is reserved for exceptions.
+You can define exceptions for your application here. 
+Exceptions are re-raised by <EM>ErrorIn</EM> "as is" (additionally current 
+transaction may be aborted if necessary). <EM>EXC_GENERAL</EM> may be used by application 
+in case if specific number is not needed. We predefined several exceptions for 
+your convenience. <EM>EXC_VALIDATION</EM> may be used for user input
+validation failures. <EM>EXC_MULTIPLE</EM> is for the case when exception message includes several
+messages, as a result of accumulation. <EM>EXC_CANCELLED</EM> is a silent exception, when 
+no additional message should be shown to user. It should be used with empty
+<EM>ErrDescr</EM> parameter of <EM>Check</EM> Sub.  
+<p>Error numbers above <EM>ERRMAP_APP_FIRST</EM> are for custom application errors. 
+Application can use <EM>ERR_GENERAL</EM> when unique error number is not needed
+instead of popular in literature but risky <EM>vbObjectError + 1</EM>. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="ErrorIn"></A>
+<h3>2.3. <EM>ErrorIn</EM> Super-Function</h3> 
+<p>We are now ready to discuss the core super-function of <STRONG>HuntERR</STRONG> library - 
+function <EM>ErrorIn</EM>. Procedure calls <EM>ErrorIn</EM> in error handler, 
+and it takes care of all error-handling business. We have already used it 
+in one of previous listings
+Here is a declaration of <EM>ErrorIn</EM> in <EM>HuntERRxx.Bas</EM> :
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Function</font> ErrorIn(<font color="#000080">ByVal</font> MethodHeader <font color="#000080">As</font> <font color="#000080">String</font>, _
+                        <font color="#000080">Optional</font> <font color="#000080">ByVal</font> arrArgs, _
+                        <font color="#000080">Optional</font> <font color="#000080">ByVal</font> ErrorAction <font color="#000080">As</font> <font color="#000080">Long</font> = EA_DEFAULT, _
+                        <font color="#000080">Optional</font> <font color="#000080">ByVal</font> DBObject <font color="#000080">As</font> Object, _
+                        <font color="#000080">Optional</font> <font color="#000080">ByVal</font> EnvVarNames <font color="#000080">As</font> <font color="#000080">String</font>, _
+                        <font color="#000080">Optional</font> <font color="#000080">ByVal</font> arrEnvVars, _
+                        <font color="#000080">Optional</font> <font color="#000080">ByVal</font> TransControlObject <font color="#000080">As</font> Object) <font color="#000080">As</font> <font color="#000080">String</font>
+</pre></code>
+</td></tr>
+</table>
+
+<p><EM>MethodHeader</EM> is the only required parameter. 
+<EM>ErrorIn</EM> expects here the name of procedure, from which <EM>ErrorIn</EM> is called 
+followed by optional list of parameter names in parenthesis. Procedure name may be 
+in qualified form: <EM>ModuleName.ProcName</EM>. 
+Values of procedure's parameters are provided in <EM>arrArgs</EM> parameter in a Variant Array. 
+Application can use <EM>Array()</EM> function to create array on-the-fly. 
+A single value may be provided as is, without embracing it into array - <EM>ErrorIn</EM> 
+will figure it out correctly.
+<EM>ErrorAction</EM> is a set of flags that specify what <EM>ErrorIn</EM> should do.
+ <EM>ENUM_ERROR_ACTION</EM> public enumeration declared in <STRONG>HuntERR</STRONG> 
+ defines available flag values:
+<table border='0' cellpadding=0 width='100%'> <tr valign='top'><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Enum</font> ENUM_ERROR_ACTION
+    EA_RERAISE = 1         <font color="#008000">'re-raise error</font>
+    EA_ADVANCED = 2        <font color="#008000">'Build Error report</font>
+    EA_SET_ABORT = 4       <font color="#008000">'Call SetAbort on current object's context.</font>
+    EA_DISABLE_COMMIT = 8  <font color="#008000">'Call DisableCommit on current objects' context. Recommended.</font>
+    EA_ROLLBACK = &amp;H10     <font color="#008000">'Call Connection.Rollback</font>
+    EA_WEBINFO = &amp;H20      <font color="#008000">'Add web request information</font>
+    EA_CONN_CLOSE = &amp;H40   <font color="#008000">'Close connection</font>
+    EA_DEFAULT = EA_ADVANCED + EA_RERAISE + EA_WEBINFO + EA_DISABLE_COMMIT <font color="#008000">'Default</font>
+    <font color="#008000">'The following constants are defined for convenience</font>
+    EA_NORERAISE = EA_ADVANCED + EA_WEBINFO + EA_DISABLE_COMMIT
+    EA_DFTRBK = EA_ADVANCED + EA_RERAISE + EA_WEBINFO + EA_ROLLBACK
+    EA_DFTRBKCLS = EA_ADVANCED + EA_RERAISE + EA_WEBINFO + EA_ROLLBACK + EA_CONN_CLOSE
+<font color="#000080">End</font> <font color="#000080">Enum</font>
+</pre></code>
+</td></tr></table>
+
+<p>Most of the time you don't need to specify <EM>ErrorAction</EM> parameter, just skip it 
+and ErrorIn would use default value. You need to specify it explicitly in at least two cases:
+<OL>
+	<LI>In methods that don't re-raise errors. In this case you can use <EM>EA_NORERAISE</EM> 
+	flag set, which is predefined but not used by HuntERR itself, it is just for your 
+	convenience. 
+	<LI>If you use ADO and control transactions through ADO Connection object 
+	then you should use explicit values in method(s) where you start/commit ADO transaction. 
+	In these methods you should use <EM>EA_DFTRBK</EM> constant as <EM>ErrorAction</EM> parameter. 
+	It has <EM>EA_ROLLBACK</EM> bit set, so <EM>ErrorIn</EM> would abort the transaction
+	if it had been started. <EM>EA_DFTRBK</EM> is defined for your convenience.
+</OL>
+<p>In some cases you may need to define your own flag combination. Do it the same way
+as we define these "convenience" constants in the enumeration. 
+<p><EM>DbObject</EM> parameter is an ADO object that was used to execute database operation, 
+if procedure executes one. It can be <EM>Connection</EM>, <EM>Command</EM>, 
+or <EM>Recordset</EM> object, whatever is used by application to perform database 
+operation. Or it can be any custom object with <EM>Connection</EM> property that 
+returns <EM>ADODB.Connection</EM> object. 
+What <EM>ErrorIn</EM> actually uses is <EM>ADODB.Connection</EM> object, and it knows how to get
+it if application provides <EM>Command</EM> or <EM>Recordset</EM> instances. <EM>ErrorIn</EM> 
+uses <EM>Connection</EM> object for two purposes: first, to retrieve ADO errors (if there are any) from 
+<EM>Connection.Errors</EM> collection and to add them to error report; 
+second, to abort the transaction  by calling 
+<EM>Connection.RollbackTrans</EM> (if instructed to do so with flag EA_ROLLBACK).  
+<p><EM>EnvVarNames</EM> and <EM>arrEnvVars</EM> allow application to report values 
+of any variables that are not procedure parameters. These may be local, module, 
+or global variables. <EM>EnvVarNames</EM> specifies 
+comma-delimited list of variable names, and <EM>arrEnvVars</EM>
+provides the array of corresponding values in <EM>Variant</EM> array. 
+As with <EM>arrArgs</EM> application can use <EM>Array()</EM> function 
+to create array on-the-fly. A single value may be provided as is, 
+without embracing it into array.
+<p><EM>TransControlObject</EM> provides a way to abort current 
+transaction when application uses separate object to control COM+ 
+transactions. If this parameter is provided, <EM>ErrorIn</EM> attempts to call its 
+<EM>SetAbort</EM> method.  
+<p>Note that exceptions are not completely "ignored" by <EM>ErrorIn</EM>. 
+All transaction-related actions are executed as with errors. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="ErrorInSimpleCase"></A>
+<h3>2.4. Example with <EM>ErrorIn</EM></h3>
+<p>Suppose we have a simple function that calculates <EM>1/(X-1)</EM>. 
+Its code with the simplest possible use of <EM>ErrorIn</EM> is as follows:
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Function</font> Calc1X1(<font color="#000080">ByVal</font> X <font color="#000080">As</font> <font color="#000080">Double</font>) <font color="#000080">As</font> <font color="#000080">Double</font>
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+    Calc1X1 = 1 / (X - 1)
+    <font color="#000080">Exit</font> <font color="#000080">Function</font>
+errHandler:
+    ErrorIn <font color="#808080">&quot;Calc1X1&quot;</font>
+<font color="#000080">End</font> <font color="#000080">Function</font>
+</pre></code>
+</td></tr></table>
+<p>If this function is called with <EM>X=1</EM> then error re-raised by <EM>ErrorIn</EM> will contain 
+the following error report in <EM>Description</EM> field:
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+Division by zero 
+  Time='04/23/02 16:25:25' App='MyApp:1.0' ADO-version='2.6' Computer='Solo' 
+  Method: Calc1X1 
+  Number: 11 = &HB = vbObjectError + 2147221515 = ERRMAP_APP_FIRST + 2147216317 
+  Source: MyApp 
+  Description: Division by zero
+  Call Stack: Calc1X1() --------------------------------------------
+</pre></code>
+</td></tr></table>
+
+<p>If we add <EM>X</EM> as a second parameter to <EM>ErrorIn</EM>, the last line of report will show value of <EM>X</EM>:
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+  Call Stack: Calc1X1(1) -----------------------------------------
+</pre></code>
+</td></tr></table>
+
+<p>If we provide name "X" in parenthesis after function name:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+ErrorIn <font color="#808080">&quot;Calc1X1(X)&quot;</font>, X
+</pre></code>
+</td></tr></table>
+
+<p>then we'll get parameter name and value in the signature of <EM>Calc1X</EM> :
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+  Call Stack: Calc1X1(X=1) ---------------------------------------
+</pre></code>
+</td></tr></table>
+
+</p>Finally, if lines in procedure are numbered: 
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Function</font> Calc1X1(<font color="#000080">ByVal</font> X <font color="#000080">As</font> <font color="#000080">Double</font>) <font color="#000080">As</font> <font color="#000080">Double</font> 
+10  <font color="#000080">On</font> <font color="#000080">Error</font> Goto errHandler
+20  Calc1X1 = 1 / (X - 1)
+30  <font color="#000080">Exit</font> <font color="#000080">Function</font>
+errHandler:
+    ErrorIn <font color="#808080">&quot;Calc1X1(X)&quot;</font>, X
+<font color="#000080">End</font> <font color="#000080">Function</font> 
+</pre></code>
+</td></tr></table>
+
+<p> ... - then we'll have line number in function's signature in error report:
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+Division by zero 
+  Time='04/23/02 16:31:41' App='MyApp:1.0' ADO-version='2.6' Computer='Solo' 
+  Method: Calc1X1 
+  Number: 11 = &HB = vbObjectError + 2147221515 = ERRMAP_APP_FIRST + 2147216317 
+  Source: MyApp
+  Description: Division by zero
+  Call Stack: Calc1X1(X=1)  at Line 20 -------------------------------
+</pre></code>
+</td></tr></table>
+
+<p><EM>ErrorIn</EM> called in error handler of <EM>Calc1X1</EM> performs the initial processing of the error. 
+At the end of processing <EM>ErrorIn</EM> will re-raise error with <EM>Err.Source</EM>="HuntERR.ErrorIn"
+and <EM>Err.Description</EM> containing error report. Error number will be the same as original 
+error number. Error handler in the caller of <EM>Calc1X1</EM> should catch the error and 
+again call <EM>ErrorIn</EM>. This time <EM>ErrorIn</EM> will recognize that it is not the first
+time it is called, and that unwind process is on the way. It will add caller's signature to 
+error report, and again re-raise it. And so on, the process of re-raising error will continue
+until finally we arrive to some top method where we must stop stack unwinding. 
+We'll discuss what to do in this top method in a separate <A HREF="#ErrorRes">chapter</A> later. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="Check"></A>
+<h3>2.5. Raising Errors: First Look at <i>Check</i> Sub</h3>
+<p>Now suppose in previous example we want to check value of <EM>X</EM> before performing division, 
+and raise exception if <EM>X=1</EM> to tell the user about invalid input. (We will see how
+exception results in error message later in section about Error Resolution).
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Function</font> Calc1X1(<font color="#000080">ByVal</font> X <font color="#000080">As</font> <font color="#000080">Double</font>) <font color="#000080">As</font> <font color="#000080">Double</font> 
+    <font color="#000080">On</font> <font color="#000080">Error</font> Goto errHandler
+    <font color="#000080">If</font> X = 1 <font color="#000080">Then</font> 
+        Err.Raise EXC_GENERAL, <font color="#808080">&quot;Calc1X1&quot;</font>, <font color="#808080">&quot;Value of X may not be 1.&quot;</font>
+    <font color="#000080">End</font> <font color="#000080">If</font> 
+    Calc1X1 = 1 / (X - 1)
+    <font color="#000080">Exit</font> <font color="#000080">Function</font>
+errHandler:
+    ErrorIn <font color="#808080">&quot;Calc1X1(X)&quot;</font>, X
+<font color="#000080">End</font> <font color="#000080">Function</font> 
+</pre></code>
+</td></tr></table>
+
+<p> The same function may be rewritten using <EM>Check</EM> sub provided by 
+<STRONG>HuntERR</STRONG>:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Function</font> Calc1X1(<font color="#000080">ByVal</font> X <font color="#000080">As</font> <font color="#000080">Double</font>) <font color="#000080">As</font> <font color="#000080">Double</font> 
+    <font color="#000080">On</font> <font color="#000080">Error</font> Goto errHandler
+    Check X &lt;&gt; 1, EXC_GENERAL, <font color="#808080">&quot;Value of X may not be 1.&quot;</font>
+    Calc1X1 = 1 / (X - 1)
+    <font color="#000080">Exit</font> <font color="#000080">Function</font>
+errHandler:
+    ErrorIn <font color="#808080">&quot;Calc1X1(X)&quot;</font>, X
+<font color="#000080">End</font> <font color="#000080">Function</font> 
+</pre></code>
+</td></tr></table>
+
+<p>Essentially <EM>Check</EM> checks if some condition is true. If it is not, 
+it raises error with specified number and description. 
+Although it doesn't seem like you get a big gain from this Sub, we 
+think there is a good reason to use it. First, the code is shorter and looks clearer, 
+more like "natural English". Second, when <EM>Check</EM> is consistently used 
+throughout the code, 
+these calls visually stand out and are easily spotted as "validation points", 
+while use of <EM>If-Then</EM> may be left for mainstream functional code that does the real stuff. 
+<p>What we have shown is a trivial example of using <EM>Check</EM>. Since version 3.1 it has a lot more
+inside than we've just shown. We'll discuss this method in details in a 
+<A HREF="#CheckDetailed">separate chapter</A>. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+
+<!-- Error Resolution ============================================================================= -->
+<A Name="ErrorRes" />
+<h2>3. Error Resolution</h2> 
+<p>The unwinding process of re-raising an error cannot continue indefinitely, 
+and at some "top" point application should stop and decide what to do about the error.
+This "top" point is usually a method that was called from outside the component, 
+and error cannot be re-raised any further simply because VB's error handling
+is not supported by the caller. Application should do what we call Error Resolution, 
+and this is a subject of this chapter. 
+<p>At resolution point application should normally do two things: persist error report,   
+and notify the caller (client, user) about failure. We provide samples of resolution code
+ for two distinctive environments: EXE desktop applications, and WEB components. 
+First let's look at <STRONG>HuntERR</STRONG> support functions for persisting error information.   
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="PersistReport" />
+<h3>3.1. Persisting Error Report</h3> 
+<p><STRONG>HuntERR</STRONG> provides 3 methods for persisting error report. 
+You can either send error report 
+to event log, append it to text file, or save it in database table.  
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Function</font> ErrSaveToEventLog() <font color="#000080">As</font> <font color="#000080">Boolean</font>
+<font color="#000080">Public</font> <font color="#000080">Function</font> ErrSaveToFile(<font color="#000080">Optional</font> <font color="#000080">ByVal</font> ErrFileName <font color="#000080">As</font> <font color="#000080">String</font> = <font color="#808080">&quot;Errors.txt&quot;</font>) <font color="#000080">As</font> <font color="#000080">Boolean</font>
+<font color="#000080">Public</font> <font color="#000080">Function</font> ErrSaveToDB(<font color="#000080">ByVal</font> ConnectString <font color="#000080">As</font> <font color="#000080">String</font>, _
+                       <font color="#000080">Optional</font> <font color="#000080">ByVal</font> AppID <font color="#000080">As</font> <font color="#000080">Long</font> = 1, _
+                       <font color="#000080">Optional</font> <font color="#000080">ByVal</font> ProcName <font color="#000080">As</font> <font color="#000080">String</font> = <font color="#808080">&quot;spErrorLogInsert&quot;</font>) <font color="#000080">As</font> <font color="#000080">Boolean</font>
+</pre></code>
+</td></tr></table>
+<p><EM>ErrSaveToEventLog</EM> sends error report to system event log. 
+There are some problems with persisting error reports to event log. 
+<p>First, size of the message is limited to about 1.5 Kb, and you will quickly find out
+that it is not enough for real-world applications. Error report will appear truncated in event log. 
+Second, event log is not available in Win 9X systems. Third - logging is ignored when 
+done from inside VB IDE. And one more problem – difficulty in accessing the event log remotely. 
+If ordinary (not computer expert) user complains about error happening 
+in your application on his computer, it can be a tricky task to get your eyes on local event log. 
+<p>The alternative is to use text file.  Use <EM>ErrSaveToFile</EM> to save 
+(actually append) error report to a text file. If <EM>ErrFileName</EM> is not a full file path then 
+function will attach application's path (location of your DLL or EXE). <EM>ErrSaveToFile</EM> 
+makes provision for the fact that several components may try to access the file at the same time
+trying to save its errors. It tries to open error file multiple times for 100 milliseconds 
+before giving up. Make sure your component has enough permissions to access error file. 
+<p><EM>ErrSaveToDB</EM> saves report to <EM>tblErrorLog</EM> table using <EM>spErrorLogInsert</EM> stored procedure. 
+Both objects must exist in your database. Scripts for creating them are attached at the end 
+of <EM>HuntERRxx.Bas</EM> file. <EM>AppID</EM> parameter and corresponding field 
+in <EM>tblErrorLog</EM> table allow you to sort out 
+errors in case if you are sharing error log table between several applications
+or components. If <EM>ErrSaveToDB</EM> fails to save error report for whatever reason it posts a message to 
+system event log. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+ 
+
+
+<A Name="Nore-raising"></A>
+<h3>3.2. Handling Without Re-raising</h3> 
+<p>For EXE applications UI event handlers must be final
+points of stack unwind process - if you raise error again application will crash. 
+For COM servers these would be public method of public classes that are callable 
+from environment that doesn't support VB error handling, or supports it poorly, like VBScript.
+There are few easy steps that you should follow if you are coding class or form that is not
+going to re-raise errors. 
+<ul>
+    <li><p>Create a method that will perform error resolution (we usually name it <EM>HandleError</EM>) 
+    <li><p>In error handlers of all externally callable methods (that don't re-raise errors)
+    use the HuntERR-defined <EM>EA_NORERAISE</EM> constant as <EM>ErrorAction</EM> parameter for <EM>ErrorIn</EM> to prevent error from
+    re-raising. After a call to <EM>ErrorIn</EM> place a call to error resolution function 
+    (<EM>HandleError</EM>) 
+</ul>
+<p>Example:
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Private</font> <font color="#000080">Sub</font> cmdDoStuff_Click()
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+	<font color="#008000">'...... do stuff here </font>
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+    ErrorIn <font color="#808080">&quot;cmdDoStuff_Click&quot;</font>, , EA_NORERAISE
+    HandleError
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+
+<font color="#000080">Private</font> <font color="#000080">Sub</font> HandleError()
+	........ 
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+<p>Note that you cannot re-raise errors in ANY event handler, not only visual controls, but 
+handlers for events raised by your custom classes as well!
+<p>In the following sections we discuss some specifics of EXE applications and COM libraries.
+The difference is mainly in what <EM>HandleError</EM> Sub is doing. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="ResExeApps"></A>
+<h3>3.3. Error Resolution in EXE Applications</h3> 
+<p>Methods that cannot re-raise errors in EXE applications are
+all event handlers. These may be control's event handlers in VB forms, or handlers 
+of events raised by COM objects. 
+<p>We recommend you to use exceptions for handling user input errors. Exceptions are very 
+efficient way to handle this type of tasks. When detecting user input error 
+(or any other condition preventing execution from continuing) 
+anywhere in your application all you need to do is raise an exception. 
+Error resolution procedure must recognize the exception and show error message to user.
+Again, nothing wrong with application, it is user's error, or something wrong with 
+environment that can be fixed by user. 
+<p>Here is what <EM>HanldeError</EM> may look like:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Private</font> <font color="#000080">Sub</font> HandleError()
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">Resume</font> <font color="#000080">Next</font> <font color="#008000">'no more errors or exceptions</font>
+    Screen.MousePointer = vbDefault <font color="#008000">'restore pointer if it was changed to hourglass</font>
+    <font color="#000080">If</font> InException <font color="#000080">Then</font>
+        <font color="#000080">Select</font> <font color="#000080">Case</font> ErrNumber
+            <font color="#000080">Case</font> EXC_GENERAL:    MsgBox ErrDescription, vbOKOnly, <font color="#808080">&quot;Exception&quot;</font>
+            <font color="#000080">Case</font> EXC_CANCELLED:  <font color="#008000">'nothing to do - it is silent exception.</font>
+            <font color="#000080">Case</font> EXC_MULTIPLE:   frmMultiUserErr.ShowUserErrors ErrDescription
+            <font color="#000080">Case</font> EXC_VALIDATION: MsgBox ErrDescription, vbOKOnly, <font color="#808080">&quot;User input error&quot;</font>
+        <font color="#000080">End</font> <font color="#000080">Select</font>
+    <font color="#000080">Else</font>
+        <font color="#000080">If</font> ErrInIDE <font color="#000080">Then</font>
+            frmShowError.ErrorReport = ErrReport
+            <font color="#000080">Else</font>
+            ErrSaveToFile
+            MsgBox <font color="#808080">&quot;Application error. Contact support.&quot;</font>
+        <font color="#000080">End</font> <font color="#000080">If</font>
+    <font color="#000080">End</font> <font color="#000080">If</font>
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+<p>As you see, we segregate predefined exceptions, but you may not want to do this, 
+and just show message box for any exception. 
+<p>Now with error resolution code in place application can use <EM>Check</EM> sub to set a 
+validation point anywhere in code hierarchy:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+    Check FileExists(FileName), EXC_GENERAL, <font color="#808080">&quot;File not found: &quot;</font> &amp; FileName
+</pre></code>
+</td></tr></table>
+<p>If file does not exist <EM>Check</EM> will throw exception, and after unwinding the stack execution 
+finally arrives into <EM>HandleError</EM>, which will show "File not found..."  exception message to user. 
+<p>Interesting type of exception is <EM>EXC_CANCELLED</EM>. You can use it when you are 
+canceling operation after asking confirmation from user. For example, you may have checkpoint
+like the following somewhere in your code:
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+    Check MsgBox(<font color="#808080">&quot;Something may be wrong here. Do you want to continue?&quot;</font>, _
+        vbYesNo, <font color="#808080">&quot;Warning&quot;</font>) = vbYes, EXC_CANCELLED, <font color="#808080">&quot;&quot;</font>
+</pre></code>
+</td></tr></table>
+<p>If user answers No, <EM>Check</EM> will raise silent exception <EM>EXC_CANCELLED</EM>, which will not 
+result in any additional messages. 
+<p>Let's look at error-handling clause now. We use <EM>ErrInIDE</EM> function provided by HuntERR 
+to detect whether we are running in IDE. What is good about current implementation
+is that it is safe and doesn't clear error object, so it may be called from anywhere in your
+application (credits to Dan F for the idea). If we are running in IDE we show error 
+report in a separate window; if we are in executable we log error to file and display 
+"Sorry" message to user. 
+<p>When in development having a chance to see error report immediately 
+you will find often unnecessary to go to step-by-step debugging. 
+If you don't see the cause of error from error report 
+it must be a red flag for you - what if similar error happens in released 
+version on client machine? You will have to understand what has gone wrong 
+using only error report. May be you need to reorganize your code so that 
+error report will better identify the exact place and cause of error. 
+<p>Beginning from version 3.1 HuntERR provides support for stopping on error 
+immediately in method where error occurred. We discuss this technique 
+in a separate section. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="ResCOMServers" />
+<h3>3.4. Error Resolution in COM Servers</h3>
+<p>The "top" methods that cannot re-raise errors in COM servers are those that are 
+called from environment that doesn't support VB error-handling model. The most 
+common example is VBScript in ASP. VBScript doesn't do great with errors raised 
+from COM so you need to set the rule that script-callable public methods never raise errors. 
+These methods should be reserved for calls ONLY from VBScript. 
+To preserve error information after failed method returns to the caller 
+you need to create corresponding properties in your class. Here is the example: 
+ 
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> ErrorNumber <font color="#000080">As</font> <font color="#000080">Long</font>, ErrorSource <font color="#000080">As</font> <font color="#000080">String</font>, ErrorDescription <font color="#000080">As</font> <font color="#000080">String</font>
+<font color="#000080">Public</font> ErrorIsException <font color="#000080">As</font> <font color="#000080">Boolean</font> 
+
+<font color="#000080">Private</font> <font color="#000080">Sub</font> HandleError()
+    ErrorNumber = Err.Number
+    ErrorSource = Err.Source
+    ErrorDescription = Err.Description
+    ErrorIsException = InException
+    <font color="#000080">If</font> <font color="#000080">Not</font> ErrorIsException then ErrSaveToFile    <font color="#008000">'or ErrSaveToDB, or ErrSaveToEventLog</font>
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+
+<p>Keep in mind that <EM>ErrorDescription</EM> may
+contain either error report, or message from exception.
+<EM>ErrorIsException</EM> propery to help VBScript to figure out quickly what happened - 
+exception or application failure: 
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+    <font color="#008000">'-- VBScript</font>
+    <font color="#000080">Dim</font> Obj 
+    <font color="#000080">Set</font> Obj = CreateObject(<font color="#808080">&quot;MyLib.MyObject&quot;</font>)
+    Obj.DoSomething
+    <font color="#000080">If</font> Obj.ErrorNumber &lt;&gt; 0 <font color="#000080">Then</font> 
+        <font color="#000080">If</font> Obj.ErrorIsException <font color="#000080">Then</font> 
+            Response.Write <font color="#808080">&quot;Please correct your input: &quot;</font> &amp; Obj.ErrorDescription
+            <font color="#008000">'or something like this... </font>
+            <font color="#000080">Else</font>
+            Response.Redirect <font color="#808080">&quot;ContactSupport.asp&quot;</font>
+        <font color="#000080">End</font> <font color="#000080">If</font> 
+    <font color="#000080">End</font> <font color="#000080">If</font> 
+
+</pre></code>
+</td></tr></table>
+<p>Important question is how to inform the caller about failure if we don't re-raise
+errors? We can check <EM>ErrorNumber</EM> property after every call in VBScript. Alternative way
+is to implement all script-callable methods as functions returning true in case of success
+and false if error occurred. With this strategy there is one useful trick that allows you
+to join several method calls with <EM>AND</EM> operator, and check only once the <EM>AND</EM> of all 
+return values. The problem is that VB doesn't support short Boolean evaluation - 
+if we <EM>AND</EM> several Boolean functions, VB will call all of them even if the first one returned
+False and value of <EM>AND</EM> expression is false anyway. If object's method returns false
+as an indicator of error we should stop the operation, and stop calling object's methods. 
+However if we add the following line to all script-callable methods inside our COM object:  
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">If</font> ErrorNumber &lt;&gt; 0 <font color="#000080">Then</font> <font color="#000080">Exit</font> <font color="#000080">Function</font> 
+</pre></code>
+</td></tr></table>
+<p>then after any method of your object fails the object becomes effectively disabled. 
+We will be able to join several calls in one AND expression:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#008000">'VBScript</font>
+<font color="#000080">If</font> <font color="#000080">Not</font> (MyObj.Method1 AND MyObj.Method2 AND MyObj.Method3) <font color="#000080">Then</font>         
+    <font color="#008000">'Error, redirect to &quot;sorry&quot; page</font>
+<font color="#000080">End</font> <font color="#000080">If</font> 
+</pre></code>
+</td></tr></table>
+<p>If error happens in <EM>Method1</EM> then <EM>Method2</EM> and <EM>Method3</EM> 
+will do nothing, and value of expression will be False. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="Advanced" />
+<h2>4. Advanced Features</h2> 
+<p><STRONG>HuntERR</STRONG> provides additional support for applications that call API functions, 
+use ADO objects, COM+ services, and work in IIS/ASP environment. 
+You can also easily extend <STRONG>HuntERR</STRONG> functionality
+and add support for specific servers or APIs that you use in your application. <STRONG>HuntERR</STRONG> 
+can help you to handle so called system exceptions - application faults so severe that 
+they are not handled by VB runtime, even with error handlers in place. The example is 
+"Access Violation" fault, which results in program termination by Windows, to put it straight -
+crash, together with VB IDE if it is running. 
+<p>This chapter discusses in details these advanced <STRONG>HuntERR</STRONG> features. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="APIErrors" />
+<h3>4.1. API Errors</h3> 
+<p>Windows API functions don't raise errors. Instead, they indicate success or failure by returning
+specific values. These return values are inconsistent throughout 
+different Windows APIs. Some functions return zero as indication of success, others as indication
+of failure. You should check Windows documentation regarding particular function you are going to 
+use. In any case if API function indicates failure by specific return value then application
+should call <EM>GetLastError</EM> API function to retrieve error number, which describes specifics of 
+error. To get error description application can call <EM>FormatMessage</EM> API function that 
+returns information about error identified by number. 
+<p>If your application calls API function(s) that indicate success/failure in this way, then 
+<STRONG>HuntERR</STRONG> helps you to handle its failure properly.  
+<EM>ErrorIn</EM> retrieves API error number and description and includes them in
+ error report automatically. All you have to do is raise error if API function failed. The following 
+example calls <EM>GetWindowRect</EM> API function, and checks the returned value; zero  
+indicates failure for this function.
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Private</font> <font color="#000080">Sub</font> CallGetWindowRect()
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+    ....
+    Check GetWindowRect(hWin, R) &lt;&gt; 0, ERR_GENERAL, <font color="#808080">&quot;GetWindowRect returned 0.&quot;</font>
+    ....
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+    ErrorIn <font color="#808080">&quot;CallGetWindowRect&quot;</font>
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+
+<p>If <EM>GetWindowRect</EM> returns 0, <EM>Check</EM> raises error, which 
+is caught by error handler. 
+<EM>ErrorIn</EM> retrieves API error number and description automatically 
+and adds it to error report:
+
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+GetWindowRect returned 0. 
+  Time='04/24/02 12:36:03' App='HuntERRdemo:3.1.0' ADO-version='2.6' Computer='Solo' 
+  Method: btnTestAPI_Click 
+  Number: -2147216305 = &H8004144F = vbObjectError + 5199 = ERRMAP_APP_FIRST + 1 
+  Source: HuntERR.Check 
+  Description: GetWindowRect returned 0.
+  API Error: (1400) Invalid window handle.
+  Call Stack: CallGetWindowRect() ---------------------------------------------
+</pre></code>
+</td></tr></table>
+
+<p>Error report shows API error number returned by <EM>LastDllError</EM> in parenthesis 
+(1400 in this case) and error description returned by <EM>FormatMessage</EM> API function. 
+Internally ErrorIn checks value of <EM>Err.LastDllError</EM> property. 
+VB applications should use this property instead of directly calling 
+<EM>GetLastError</EM>, which does not work correctly in VB. Remember, you have to retrieve 
+API error as soon as possible after it occurred - other functions may override its value. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+
+<A Name="ADOErrors" />
+<h3>4.2. ADO Errors</h3> 
+<p>Whenever database operation fails ADO object fires an error. But this error often doesn't
+contain all error information. Sometimes multiple errors happen in a database call, 
+and in this case error messages are placed into <EM>Connection.Errors</EM> collection. 
+No doubt all this information should be included in error report. 
+<EM>ErrorIn</EM> does this automatically if application provides reference to ADO object in <EM>DbObject</EM> 
+parameter to <EM>ErrorIn</EM>. 
+<p><EM>DbObject</EM> is declared as object, without particular object type. 
+What ErrorIn needs is <EM>Connection</EM> object, but it may happen that 
+application doesn't create it explicitly. ADO library provides different ways 
+of executing database operations. Application is free to choose among
+<EM>Command.Execute</EM>, <EM>Recordset.Open</EM> or <EM>Connection.Execute</EM> methods. 
+For example, when application uses <EM>Recordset.Open</EM> method, 
+it doesn't need to instantiate <EM>Connection</EM> object 
+explicitly - ADO library does this automatically. 
+This automatically created Connection object may be reached through 
+<EM>Recordset.ActiveConnection</EM> property. 
+In a call to <EM>ErrorIn</EM> application can provide reference to <EM>Recordset</EM> 
+object itself, and <EM>ErrorIn</EM> will figure out how to get <EM>Connection</EM>. 
+<p>Even more: you can provide object of your custom type - the only 
+thing that is required is that it has a property <EM>Connection</EM> that returns 
+<EM>ADODB.Connection</EM> object. 
+<p>When retrieving <EM>Connection</EM> object, <EM>ErrorIn</EM> proceeds carefully, 
+knowing that error could happen in procedure before any objects were created, 
+or before opening connection to database, so <EM>Connection</EM> may be not available, or may be closed. 
+Only if <EM>Connection</EM> object is successfully retrieved, and its <EM>Errors</EM> collection 
+is not empty, only then <EM>ErrorIn</EM> adds list of ADO errors into error report.
+
+<p>ADO errors are added only during initial processing of the error, not during stack unwind process. 
+Application should provide reference to ADO object in <EM>ErrorIn</EM> call in method 
+where ADO operation is executed. 
+<p>The following code uses ADO <EM>Command</EM> object to execute a SQL statement: 
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Sub</font> ExecSQL(<font color="#000080">ByVal</font> SQL <font color="#000080">As</font> <font color="#000080">String</font>)
+    <font color="#000080">Dim</font> Cmd <font color="#000080">As</font> ADODB.Command
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+    <font color="#000080">Set</font> Cmd = New ADODB.Command
+    Cmd.CommandType = adCmdText
+    Cmd.CommandText = SQL
+    Cmd.ActiveConnection = CONNECT_STRING
+    Cmd.Execute
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+    ErrorIn <font color="#808080">&quot;DBClass.ExecSQL(SQL)&quot;</font>, SQL, , Cmd
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+<p>If SQL is invalid, we get error report that may look like this:
+
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+Invalid column name 'X'. 
+  Time='04/24/02 12:39:56' App='HuntERRdemo:3.1.0' ADO-version='2.6' Computer='Solo' 
+  Method: DBClass.ExecSQL 
+  Number: -2147217900 = &H80040E14 = vbObjectError + 3604 = ERRMAP_APP_FIRST - 1594 
+  Source: Microsoft OLE DB Provider for SQL Server 
+  Description: Invalid column name 'X'.
+  ADO Info: 
+    ADO Version:   2.6
+    DbObject:      Command
+    Conn. String: 'Provider=SQLOLEDB.1;Password=;User ID=sa;Initial Catalog=Northwind;
+    Conn. State:   adStateOpen
+    Error:         Invalid column name 'X'.
+    Error:         Invalid column name 'Y'.
+    Error:         Invalid column name 'Z'.
+  Call Stack: DBClass.ExecSQL(SQL='SELECT X, Y, Z FROM Customers') ------------------
+</pre></code>
+</td></tr></table>
+<p>As you can see, in version 3.1 connection information is reported automatically. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="ADOTrans"></A>
+<h3>4.3. ADO Transactions</h3>
+<p>If error occurs in database application when it is in the middle of database transaction, 
+part of error-handling procedure should be aborting or at least disabling transaction. 
+There are two basic mechanisms that applications can use to control database transactions:
+<ul>
+<li><p>Using <EM>BeginTrans</EM>, <EM>CommitTrans</EM> and <EM>RollbackTrans</EM>
+     methods of ADO <EM>Connection</EM> object. 
+	We will refer to transactions originated and controlled this way as "ADO Transactions"
+<li><p>Using COM+ services; we'll refer to transactions originated this way as "COM+ Transactions".
+</ul>  
+<p>This section describes how <STRONG>HuntERR</STRONG> supports ADO transactions. 
+COM+ transactions are discussed in the next section. 
+
+<p><EM>ErrorIn</EM> can abort ADO transaction automatically using <EM>RollbackTrans</EM>
+ method of <EM>Connection</EM> object. 
+To make it happen application should specify <EM>EA_ROLLBACK</EM> flag in 
+<EM>ErrorAction</EM> parameter of <EM>ErrroIn</EM>, 
+and provide reference to ADO object involved in transaction in <EM>DbObject</EM> parameter. 
+<EM>ErrorIn</EM> cannot determine whether actual transaction was started and is active – ADO 
+doesn't provide any function or property that "remembers" transaction status.
+If <EM>Connection</EM> object is retrieved successfully, it is open, and 
+<EM>EA_ROLLBACK</EM> flag is specified, then <EM>ErrorIn</EM> attempts to call 
+<EM>Connection.RollbackTrans</EM> anyway. If there is no active transaction, 
+ADO fires an error, which is simply ignored by <EM>ErrorIn</EM>. However, the result of 
+attempt to abort the transaction is shown in error report. 
+<p>Let's look at the example. The following method tries to delete a record from Orders table by its  
+OrderID:
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Sub</font> DeleteOrder(<font color="#000080">ByVal</font> OrderID <font color="#000080">As</font> <font color="#000080">Long</font>)
+    <font color="#000080">Dim</font> Conn <font color="#000080">As</font> Connection
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+    <font color="#000080">Set</font> Conn = New Connection
+    Conn.Open CONNECT_STRING
+    Conn.BeginTrans
+    Conn.Execute <font color="#808080">&quot;Delete From Orders Where Order_ID=&quot;</font> &amp; OrderID 
+    Conn.CommitTrans
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+    ErrorIn <font color="#808080">&quot;DeleteOrder(OrderID)&quot;</font>, OrderID, EA_DFTRBK, Conn
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+
+<p>In case of error no matter what has gone wrong  in <EM>DeleteOrder</EM> method
+(database operation failed, or something else), 
+if transaction started <EM>ErrorIn</EM> will abort it. The same is true for 
+exceptions: if we add a line raising exception somewhere in code then current transaction will be 
+aborted as well. So exceptions are not simply re-raised by <EM>ErrorIn</EM>, it takes care of active 
+transactions if you want him to.   
+<p>Transaction may be aborted during stack unwinding, not only at the moment 
+of initial error processing. You may want to postpone the decision about aborting the transaction, 
+and to do it in the caller of the method where the error happened. Of course, in this case ADO 
+object should be still alive, so it must be module-level or global variable. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+
+<A Name="COMPTrans"></A>
+<h3>4.4. COM+ Transactions</h3>
+<p>HuntERR provides support for COM+ transactions. You can abort COM+ transaction automatically 
+in two ways. 
+<p>The first way is similar to controlling transactions through ADO connection object. If you specify  
+<EM>EA_SET_ABORT</EM> flag in <EM>ErrorAction</EM> parameter in a call to <EM>ErrorIn</EM> then it will call 
+<EM>ObjectContext.SetAbort</EM>, and your object will vote with "No" on transaction commit. 
+Transaction will be aborted after returning from "top" method that executes in transaction 
+context (See COM+ documentation for details). 
+The other COM+ - related flag is <EM>EA_DISABLE_COMMIT</EM>. It causes <EM>ErrorIn</EM> 
+to call <EM>DisableCommit</EM> method of object's context. 
+With this method your object puts transaction temporarily on hold -  
+any attempt to commit it will cause transaction to be aborted. 
+Application can enable commit by calling <EM>EnableCommit</EM> method of object context. 
+<p>The second way of aborting COM+ transactions is provided to support the technique that 
+delegates transaction control to a special object, which we will call <EM>Transaction Control Object</EM>. 
+The following paragraphs explain how it works.    
+
+<p>COM+ transaction is started by instantiating a transactional object, i.e. COM class registered 
+in COM+ services with transaction attribute "Requires New Transaction" (or "Requires 
+Transaction" if there is no transaction in progress). What object can be used as such a transaction 
+initiator? It can be your database access object that performs database operations, i.e. instantiates 
+ADO objects and makes calls to database through ADO. 
+<p>There are some inconveniences with this approach. First, many of database operations are only 
+reading data, so they don't need to be executed in transaction. 
+Transactions are expensive, and consume heavily database server resources. 
+If you use your database class for initiating transactions, then all of its operations are executed in 
+transactions. In order to make read operations efficient you have to move them to a separate non-transactional
+class. So you have to have two classes - non-transactional one for read operations, 
+and transactional for operations that modify data in database. This "break-up" of database access
+methods doesn't seem very natural, and sometimes may be difficult to implement.  
+<p>The other problem arises when you try to span transaction over several databases or even 
+several database servers. You will have to code such distributed operation in one class, which is 
+inconvenient – it seems better to have separate class for each database. 
+
+<p>There is a simple solution to these problems. The idea is to give transaction control to 
+a separate class, that will initiate and terminate transactions. We'll call the instance this class
+Transaction Control Class. Application can include any object into the scope of transaction by 
+instantiating it from inside this transaction control object. 
+We provide source code of <EM>ujTransaction</EM> - an implementation of such a Transaction Control Class.  
+It is very simple and has only three methods: <EM>CreateInstance</EM>, <EM>SetAbort</EM> 
+and <EM>SetComplete</EM>. 
+<p>If you decide to use <EM>ujTransaction</EM> in your application, you should include it into your project, and 
+configure it in COM+ with attribute "Requires New Transaction". Your database access classes 
+should be configured with attribute "Uses Transaction". 
+<p>To start the transaction simply instantiate <EM>ujTransaction</EM>. Then create instances of your database 
+classes using not VB's <EM>CreateObject</EM> function 
+but <EM>CreateInstance</EM> method of <EM>ujTransaction</EM> class. 
+<EM>CreateInstance</EM> doesn't do anything complicated – it just calls <EM>CreateObject</EM>. But inside 
+<EM>ujTransaction</EM> this call works differently than if you do it outside the class - 
+the created object will be included into scope of transaction initiated by ujTransaction. 
+In this way you can include several database classes into one transaction. 
+After creating all necessary objects application performs 
+database operations through created objects' methods as usual, and all these operations are executed in 
+one transaction. Then application commits transaction by calling 
+<EM>SetComplete</EM> method of <EM>ujTransaction</EM> class. To abort transaction, application should call 
+<EM>ujTransaction.SetAbort</EM>. 
+<p>So, if you want to execute database operation in transaction, you instantiate 
+your database class through <EM>CreateInstance</EM> method of 
+<EM>ujTransaction</EM> instance. Otherwise (if you don't want to run operation in transaction) 
+you instantiate database class directly using <EM>CreateObject</EM> function. 
+<p>The support that <STRONG>HuntERR</STRONG> provides for this technique is the following. 
+<EM>ErrorIn</EM> can call <EM>SetAbort</EM> method of your transaction control object 
+if you provide reference to it as the last parameter of <EM>ErrorIn</EM>. 
+<p>Let's look at the example. Suppose you want to implement "money transfer" sub with 
+accounts located in different databases.
+Here is how you can do this: 
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Sub</font> Transfer(<font color="#000080">ByVal</font> FromAcct <font color="#000080">As</font> <font color="#000080">String</font>, <font color="#000080">ByVal</font> ToAcct <font color="#000080">As</font> <font color="#000080">String</font>, 
+			 <font color="#000080">ByVal</font> Amount <font color="#000080">As</font> Currency)
+    <font color="#000080">Dim</font> Trans <font color="#000080">As</font> ujTransaction, DB1 <font color="#000080">As</font> CBranch1, DB2 as CBranch2
+    <font color="#000080">On</font> <font color="#000080">Error</font> Goto errHandler    
+    <font color="#000080">Set</font> Trans = CreateObject(<font color="#808080">&quot;ujTransaction&quot;</font>) 
+    <font color="#000080">Set</font> DB1 = Trans.CreateInstance(<font color="#808080">&quot;CBranch1&quot;</font>)
+    <font color="#000080">Set</font> DB2 = Trans.CreateInstance(<font color="#808080">&quot;CBranch2&quot;</font>)
+    <font color="#008000">'Transaction started, DB1 and DB2 are included in its scope </font>
+    DB1.ExecAccountDebit FromAcct, Amount 
+    DB2.ExecAccountCredit ToAcct, Amount
+    Trans.SetComplete <font color="#008000">'Commit </font>
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+   ErrorIn <font color="#808080">&quot;CBizClass.Transfer(FromAcct,ToAcct,Amount)&quot;</font>, _
+        Array(FromAcct, ToAcct, Amount), , , , , Trans
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+
+<p>When error occurs and <EM>ErrorIn</EM> is called it checks if <EM>TransControlObject</EM> 
+is provided in the last parameter. If it is, <EM>ErrorIn</EM> attempts to call its <EM>SetAbort</EM> method.
+<EM>ErrorIn</EM> does this regardless of <EM>ErrorAction</EM> flags. Also in this case
+<EM>ErrorIn</EM> doesn't attempt to do anything about transaction through <EM>Connection</EM> object, 
+regardless of <EM>ErrorAction</EM> flags, even if a call to <EM>TransControlObject.SetAbort</EM> fails. 
+</p>
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="WebInfo" />
+<h3>4.5. WEB request information</h3>
+<p><EM>ENUM_ERROR_ACTION</EM> enumeration defines flag <EM>EA_WEBINFO</EM>, which 
+allows application to include WEB request information into error report. If this flag is set in 
+<EM>ErrorAction</EM> parameter <EM>ErrorIn</EM> tries to retrieve object context, 
+and then <EM>IIS Request</EM> object through object context. 
+If it succeeds, it adds several lines to error report that contain request 
+information like URL, query string, request method, etc. The resulting report may look like this:
+
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+Invalid column name 'X'. 
+  Time='04/18/02 09:13:56' App='MyLib' ADO-version='2.6' Computer='Solo' 
+  Method: ExecUpdateSQL 
+  Number: -2147217900 = &H80040E14 = vbObjectError + 3604 = ERRMAP_APP_FIRST - 1594 
+  Source: Microsoft OLE DB Provider for SQL Server 
+  Description: Invalid column name 'X'.
+  ADO Info: 
+    ADO Version:   2.6
+    DbObject:      Connection
+    Conn. String: 'Provider=SQLOLEDB.1;Server=;Password=;User ID=sa;Catalog=Northwind;
+    Conn. State:   adStateOpen
+    Error:         Invalid column name 'X'.
+    Error:         Invalid column name 'Y'.
+    Error:         Invalid column name 'Z'.
+  WEB Request Info:         
+    RequestMethod='GET'        
+    QueryString: 'www.dot.com/Test.asp?txtParam=SampleValue'         
+    FormData:    ''         
+    Cookies:     'SampleCookie=Very+Tasty;OtherCookie=Chocolate'    
+  Call Stack: ExecUpdateSQL(SQL='Update Customers Set X = Y WHERE Z = 1') -----------
+    Transaction: Attempt to call RollbackTrans succeeded
+    Connection: Attempt to call Close succeeded
+</pre></code>
+</td></tr></table>
+<p>Beginning with version 3.1 <EM>EA_WEBINFO</EM> flag is included into <EM>EA_DEFAULT</EM> flag set, so
+you don't need to do anything special to get WEB request information included into 
+error report - it will be done automatically, whenever your component executes in IIS
+environment. 
+
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="SysExceptions" />
+<h3>4.6. System Exceptions</h3> 
+<p>Some errors are so bad that they cause application crash even if you cover them with 
+error handler. If you are running application from VB IDE it crashes as well. The example 
+of such an error is "Access Violation" fault, which happens when your program tries to 
+access memory outside the process's memory bounds. It may happen if you provide fault 
+parameters to API function that expects memory buffer from you to place return information there. 
+These errors are called System Exceptions, and we will use this term, although 
+facing some ambiguity with HuntERR's own terms. Just remember that Exception is a
+user mistake, Error is your application's failure, and System Exception is application's 
+super-failure.
+
+<p>If error handlers cannot help with system exceptions, what possibly can? 
+There is a remedy for these situations, and a way to survive System Exceptions. 
+Your application can setup system exception handler, a function that is called 
+by Windows when system exception occurs. If you raise VB error in this function, 
+then your application will survive.  For more details and explanations we refer you to 
+an excellent article <b>"No Exception Errors, My Dear Dr. Watson"</b> by Jonathan Lunman
+in May 99 issue of 
+<a href="http://www.devx.com/vsm/" target="article">Visual Basic Programmer's Journal</a>
+(Now Visual Studio Magazine). You have to be a subscriber of VSM to be able to see the past issues. 
+Another source of information about system exceptions handling and stack unwinding mechanism 
+in Windows is this article:
+<br><STRONG>Win32 Exception handling for assembler programmers, by Jeremy Gordon</STRONG>. 
+<br><A HREF="http://archive.yates2k.net/Iczelion/Exceptionhandling.html" target="article">
+http://archive.yates2k.net/Iczelion/Exceptionhandling.html</A> 
+<p>But as you see from its title it is not written for VB programmers - 
+all samples are in assembly language, and you need to understand some internal Windows mechanics.   
+However you can get some idea of what happens inside your application when exception occurs. 
+
+<p>Without going into any more details, we'll just say that <STRONG>HuntERR</STRONG> provides two functions:
+<EM>ErrSysHandlerSet</EM> sets up custom exception handler, and 
+<EM>ErrSysHandlerRelease</EM> releases it when it is no longer needed. If you are 
+using some "dangerous" API functions, or COM Server(s) that may cause system exception, 
+you should call <EM>ErrSysHandlerSet</EM> before using this potentially dangerous stuff. After 
+you're done call <EM>ErrSysHandlerRelease</EM> to restore system default handler. 
+If system exception happens with handler set in place your application will not crash but 
+will get a VB error with reserved number <EM>ERR_SYSEXCEPTION</EM>. 
+<EM>Err.Description</EM> will contain exception hex code and description. 
+Let's look at procedure that intentionally calls API function with bad parameters:
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Sub</font> BadAPICall
+    <font color="#008000">'-- Dim strBuffer As String * 255  -- this is correct declaration</font>
+    <font color="#000080">Dim</font> strBuffer <font color="#000080">As</font> <font color="#000080">String</font>, BufLen <font color="#000080">As</font> <font color="#000080">Long</font> <font color="#008000">'But we do it wrong</font>
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+    ErrSysHandlerSet
+    .....
+    BufLen = 255 <font color="#008000">'We promise 255-char buffer, but provide empty string </font>
+    GetComputerNameAPI strBuffer, BufLen       <font color="#008000">' System exception!</font>
+    .....
+    ErrSysHandlerRelease
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+    ErrorIn <font color="#808080">&quot;BadAPICall&quot;</font>  <font color="#008000"> '-- And we survived!</font>
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+
+<p>If parameters were so bad that they caused system exception, our custom handler will 
+take over the situation and raise "normal" VB error. Error report after ErrorIn call 
+will look like this: 
+
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+(&HC0000005) Access violation 
+  Time='04/24/02 13:35:57' App='MyApp:3.1.0' ADO-version='2.6' Computer='Solo' 
+  Method: BadAPICall
+  Number: -2147217407 = &H80041001 = vbObjectError + 4097 = ERRMAP_APP_FIRST - 1101 
+  Source: HuntERR.SysExcHandler 
+  Description: (&HC0000005) Access violation
+  Call Stack: BadAPICall() ---------------------------------------------------------
+</pre></code>
+</td></tr></table>
+
+<p>All methods and declarations related to system exceptions are located in separate module 
+HuntERR30SysH.Bas, and are almost completely independent from mainstream <STRONG>HuntERR</STRONG> functionality. 
+In order to use these functions you must include this module into your project.
+Prior to version 3.1 <EM>ErrorIn</EM> was automatically releasing system exception
+handler. Now we know, that it is not necessary, so beginning from 3.1 <EM>ErrorIn</EM> leaves it
+as is. We recommend you to set system exception handler at application start. You actually
+don't need to release it - Windows will do it automatically when application terminates. 
+You don't need it to do for all DLL libraries - it's enough to have one set in Executable 
+project. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="Extensions"></a>
+<h3>4.7. HuntERR Extensions </h3> 
+<p>HuntERR allows you to easily add support for specific COM servers used by 
+your application, similar to one it provides for ADO COM library. HuntERR 
+contains code that knows how to extract ADO errors from ADO instance. To do the 
+same with some other component you don't need to modify <STRONG>HuntERR</STRONG> source. 
+Instead, you encapsulate this error-extraction code in a separate class that 
+we will call <EM>Error Extractor Class</EM>. It must have only one method:
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Function</font> Extract(<font color="#000080">ByVal</font> COMServer <font color="#000080">As</font> Object, <font color="#000080">ByVal</font> Param) <font color="#000080">As</font> <font color="#000080">String</font>
+</pre></code>
+</td></tr></table>
+
+<p><EM>COMServer</EM> is an instance of COM server that contains error information 
+to be retrieved. <EM>Param</EM> is a free-form parameter that application sends 
+to error extractor if it needs to pass some additional information to Extract method. 
+Method should return a free-form error information (multi-line is OK) that 
+will be included into error report built by <EM>ErrorIn</EM>. 
+<p>You provide either instance of this class, or it's ProgID 
+when you call the following <STRONG>HuntERR</STRONG> method in error handler:
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Sub</font> ErrGetFromServer(<font color="#000080">ByVal</font> Extractor, <font color="#000080">ByVal</font> COMServer <font color="#000080">As</font> Object, _
+        <font color="#000080">Optional</font> <font color="#000080">ByVal</font> Param, <font color="#000080">Optional</font> <font color="#000080">ByVal</font> Comment <font color="#000080">As</font> <font color="#000080">String</font>)
+</pre></code>
+</td></tr></table>
+
+<p><EM>Extractor</EM> may be either instance of your extractor class, or its ProgID. 
+<EM>COMServer</EM> is an instance of "troubled" object.
+<EM>Param</EM> is free-form parameter that application may use to pass some information to 
+the <EM>Extract</EM> method. <EM>Comment</EM> is a string that will appear in error report in the header 
+of error information from this COM server.  
+<p><EM>ujEEDomDoc.cls</EM> class provided with <STRONG>HuntERR</STRONG> is error 
+extractor for <EM>MS XML DOMDocument</EM>. The following code loads XML string 
+into DOM Document object, and uses <EM>ujEEDomDoc.cls</EM> in error handler 
+to extract error if one occurs:   
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Private</font> <font color="#000080">Sub</font> ParseXML(<font color="#000080">ByVal</font> XML <font color="#000080">As</font> <font color="#000080">String</font>)
+    <font color="#000080">Dim</font> xmlDoc <font color="#000080">As</font> MSXML.DOMDocument
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+    <font color="#000080">Set</font> xmlDoc = New MSXML.DOMDocument
+    Check xmlDoc.LoadXML(XML), ERR_GENERAL, <font color="#808080">&quot;LoadXML method failed.&quot;</font>
+    MsgBox <font color="#808080">&quot;XML string parsed successfully.&quot;</font>
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+    ErrGetFromServer New ujEEDomDoc, xmlDoc, , <font color="#808080">&quot; This is comment &quot;</font>
+    ErrorIn <font color="#808080">&quot;ParseXML(XML)&quot;</font>, <font color="#808080">&quot;...&quot;</font>
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+<p>If XML string is invalid then generated error report may look like this:
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+LoadXML method failed. 
+  Time='04/24/02 13:45:33' App='HuntERRdemo:3.1.0' ADO-version='2.6' Computer='Solo' 
+  Method: ParseXML 
+  Number: -2147216306 = &H8004144E = vbObjectError + 5198 = ERRMAP_APP_FIRST + 0 = ERR_GENERAL
+  Source: HuntERR.Check 
+  Description: LoadXML method failed.
+  Call Stack: ParseXML(xmlSample='...') --------------------------------------------
+    COM Server Errors: Server={DOMDocument} Extractor={ujEEDomDoc}  [ This is comment ]
+      Description: End tag 'SomeElemXYZ' does not match the start tag 'SomeElem'.
+      Source Line: &lt;/SomeElemXYZ&gt;
+      .              ^
+      Line=3 Pos=3
+</pre></code>
+</td></tr></table>
+
+<p><EM>ErrGetFromServer</EM> calls <EM>Extract</EM> method of extractor object, and stores returned error information
+in HuntERR internal buffer. This information will be later included into error report. 
+We create the instance of error extractor on-the-fly using <EM>New</EM> Operator. 
+(Note: Don't try to enclose this <EM>New...</EM> expression in parenthesis - VB will interpret this as 
+reference to default property of the object, and the whole thing will fail).
+Alternatively we could use "MyLib.ujEEDomDoc" ProgID as the first parameter. 
+COM Servers may either raise errors in case of failures (like ADO), 
+or they may return false or some specific value indicating failure (like <EM>LoadXML</EM> method). 
+In the latter case we must trigger error programmatically. 
+
+<p>You can call <EM>ErrGetFromServer</EM> several times in a row in one error handler, 
+possibly with different COM servers and extractors.
+Information returned by extractors is accumulated in internal buffer, which will be later included 
+into error report by <EM>ErrorIn</EM>.
+<p>Here are some tips about creating extractors:
+<ol>
+	<li><p><EM>ErrGetFromServer</EM> saves <EM>Err</EM> object properties in <STRONG>HuntERR</STRONG> 
+	internal variables	in the very first call. This information 
+	will be later used by <EM>ErrorIn</EM>. Extractor doesn't need to worry about 
+	preserving <EM>Err</EM> object (it is very easily cleared)
+	
+	<li><p>On the other hand, <STRONG>HuntERR</STRONG> restores the original 
+	error information into <EM>Err</EM> object just before the call to 
+	<EM>Extract</EM> method, so it CAN use <EM>Err</EM> properties if it wants to. 
+	If you call <EM>ErrGetFromServer</EM> several times in a row in one error handler each 
+	extractor will have the original copy of <EM>Err</EM> object.
+	
+	<li><p>Keep in mind that COM object may be OK, and the cause of  
+	error is something else. In this case return empty string, and nothing will be included 
+	into error report. Your extractor will be called if application raises exception as well, so 
+	put a check for exception at the beginning of <EM>Extract</EM> method. 
+	
+	<li><p>Error can happen in a method before COM instance 
+	was created, so extractor must correctly deal with situation when <EM>COMServer</EM> parameter is <EM>Nothing</EM>. 
+	<EM>ErrGetFromServer</EM> calls extractor anyway. This is done to allow you to build extractor 
+	that gets errors from some special API or service, not necessarily COM object, and in this case 
+	you would send <EM>Nothing</EM> as <EM>COMServer</EM> parameter.  
+	
+	<li><p>Your error information may include <EM>CRLF</EM> combination, i.e. it may be multi-line. 
+	If your error message doesn't end with <EM>CRLF</EM> <STRONG>HuntERR</STRONG> will add it automatically. 
+	Don't indent or format the code - <EM>ErrorIn</EM> will do it automatically. 
+	
+</ol>
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="ErrPreserve" />
+<h3>4.8. Preserving Error Information</h3>
+<p>However powerful <EM>ErrorIn</EM> and other HuntERR methods are, they cannot 
+possibly cover every specific thing you may need to do in error handler. 
+Sometimes you may need to put some custom code there. 
+You certainly cannot put it after <EM>ErrorIn</EM> call - <EM>ErrorIn</EM> re-raises error, so 
+your code never gets executed. If you put your custom code before a call to 
+<EM>ErrorIn</EM> you should be very careful not to clear <EM>Err</EM> object because   
+<EM>ErrorIn</EM> expects to find error information there. HuntErr makes this easier for you
+- just call <EM>ErrPreserve</EM> function at the beginning of error handler. <EM>ErrPreserve</EM>
+will save error information in internal variables, and your code doesn't need
+to worry about it. ErrorIn actually is looking for error information in one 
+of two places - in internal variables where it could be saved by ErrPreserve, or
+in <EM>Err</EM> object itself. If it doesn't find it in either place, it puts into 
+error description its own warning message that error information was lost, and a tip
+how to fix it:
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+ErrorIn: Error information was lost. _
+	To fix: call ErrPreserve before doing anything in error handler. 
+  Time='04/19/02 13:20:06' App='MyApp' ADO-version='2.6' Computer='Solo' 
+  Method: frmMain.btnDoStuff_Click 
+  Number: -2147216306 = &H8004144E = vbObjectError + 5198 = ERRMAP_APP_FIRST + 0 = ERR_GENERAL
+  Source:  
+  Description: ErrorIn: Error information was lost. To fix: call ErrPreserve..
+  Call Stack: frmMain.btnDoStuff_Click() -------------------------------------
+</pre></code>
+</td></tr></table>
+
+<p>All HuntERR-provided methods call <EM>ErrPreserve</EM> automatically. If you call <EM>ErrPreserve</EM>
+several times only the first call preserves information, all following calls do nothing until
+<EM>ErrorIn</EM> is called. Error information is frozen inside HuntERR in this case. 
+<p><EM>Warning: make sure you call ErrPreserve, or other HuntERR functions 
+calling ErrPreserve ONLY in error handlers, never from normal mainstream code</EM>. Otherwise 
+you may lock internal HuntERR variables with error information, and when actual error happens
+in a method it will NOT pick the error information from <EM>Err</EM> object in error handler - 
+it will report what <EM>ErrPreserve</EM> locked previously. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="LongStrings"></A>
+<h3>4.9. Long Strings, XML Formatting</h3>
+<p>Eventually parameter may contain long pieces of text, maybe even multi-line text. 
+In this case showing them together with other parameters names/values in 
+method's signature makes error report difficult to read. 
+ErrorIn makes a special provision for this case. If parameter value is a string longer 
+than 40 characters, or if it contains NewLine character then this value is shown separately, 
+after method's signature:
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+Division by zero 
+  Time='04/19/02 09:12:47' App='MyApp' ADO-version='2.6' Computer='Solo' 
+  Method: frmMain.TestLongData 
+  Number: 11 = &HB = vbObjectError + 2147221515 = ERRMAP_APP_FIRST + 2147216317 
+  Source: HuntERRdemo 
+  Description: Division by zero
+  Call Stack: frmMain.TestLongData(Prm1='This is short parameter', Prm2={Text}, Prm3={Text})
+    Value Of Prm2:
+      'This parameter is a little longer than 40 characters.'
+    Value Of Prm3:
+      'And this has CRLF
+      inside'
+</pre></code>
+</td></tr></table>
+<p>Another helpful thing that <EM>ErrorIn</EM> does is formatting XML strings. 
+Although XML is human-readable by definition, looking through plain XML message 
+is often not so easy task - the whole message is one continuous line, 
+with no breaks or indents. It looks quite 
+different from what you see in Internet Explorer when you load XML file. 
+<EM>ErrorIn</EM> can help with this. It assumes that string parameters with names starting 
+with "xml" prefix are XML messages. In this case it shows them separately in error report,
+not in method signature, and applies special formatting to it. It shows every XML
+element on a separate line with proper indentation for each child element. See HuntERR
+Demo Application for examples of error report. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="FileClose" />
+<h3>4.10. Closing Files</h3>
+<p>If your application is working with disk files then part of the clean-up in 
+error handler should be closing all opened files. You can do it easily by 
+calling <EM>ErrCloseFiles</EM> method implemented by HuntERR. This Sub expects one or more
+file handlers, and it attempts to call Close on those of them that are not zero. 
+Here is the example:
+<table border='0' cellpadding=0 width='100%'> <tr valign='top'><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Sub</font> ProcessFile(<font color="#000080">ByVal</font> FileName <font color="#000080">As</font> <font color="#000080">String</font>)
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+    <font color="#000080">Dim</font> F <font color="#000080">As</font> <font color="#000080">Long</font>
+    F = FreeFile
+    Open FileName <font color="#000080">For</font> Output <font color="#000080">As</font> #F
+        <font color="#008000">'Process file</font>
+    Close #F
+    F = 0
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+    ErrCloseFiles F
+    ErrorIn <font color="#808080">&quot;ProcessFile(FileName)&quot;</font>, FileName
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+<p>If error happens during file processing <EM>ErrCloseFiles</EM> will close the file. 
+Without this call file will remain open and locked by Windows, so you won't be able even to retry
+the operation. You can specify more than one file handler to <EM>ErrCloseFiles</EM>. If file is not open, 
+attempt to close it would result in error, which will be ignored by <EM>ErrCloseFiles</EM>.    
+
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="ReleaseObj" />
+<h3>4.11. Releasing Objects</h3>
+<p>Now let's discuss one hot and controversial topic - explicit release of local objects 
+references in VB methods. Since first 
+release of HuntERR programmers continued to ask us about this - they used to code explicit 
+<EM>Set Obj = Nothing</EM> at the end of their methods and in error handlers, 
+and now they wanted to continue doing this with HuntERR. 
+We introduce support for explicit objects release in this version. 
+
+<p>You may well ask - what's the big problem with releasing objects? Just put a few assignments in 
+error handler before the call to <EM>ErrorIn</EM>, and that's it. It turns out things are not so simple. 
+First, object release may invoke some automatically executed code in <EM>Class_Terminate</EM> 
+method of object being released, which may eventually clear <EM>Err</EM> object. 
+This is actually not a big problem -  calling <EM>ErrPreserve</EM> method at the beginning 
+of error handler may preserve error information. 
+<p>The other problem is not so easy to solve: you cannot release ADO object in this way. 
+You cannot release it before calling <EM>ErrorIn</EM> - <EM>ErrorIn</EM> needs a "live" reference to 
+ADO object to retrieve error information, abort transaction or close connection. 
+On the other hand you cannot release ADO object after calling <EM>ErrorIn</EM> - 
+if <EM>ErrorIn</EM> re-raises error this release command never gets executed. 
+<p>Here is the solution by HuntERR. It provides <EM>ErrRlsObjs</EM> method that allows you 
+to safely release up to 8 objects references in one call. 
+Let's look at a trivial example:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Private</font> <font color="#000080">Sub</font> TestRlsObjs()
+    <font color="#000080">Dim</font> Obj1 <font color="#000080">As</font> CTestClass, Obj2 <font color="#000080">As</font> CTestClass
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+    <font color="#000080">Set</font> Obj1 = New CTestClass
+    <font color="#000080">Set</font> Obj2 = New CTestClass
+    ......
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+    ErrRlsObjs Obj1, Obj2 
+    ErrorIn <font color="#808080">&quot;MyClass.TestRlsObjs&quot;</font>
+<font color="#000080">End</font> <font color="#000080">Sub</font></pre></code>
+</td></tr></table>
+
+<p>Some comments on the code. <EM>ErrRlsObjs</EM> doesn't do much - 
+it is simply a
+compact version of multiple <EM>Set ... = Nothing</EM> commands. It also preserves error information for
+later use by <EM>ErrorIn</EM>, so objects being released don't need to worry about this. <EM>ErrRlsObjs</EM> 
+builds internal list of class names of objects being released; this list will be included into
+error report. Keep in mind that <EM>Class_Terminate</EM> and <EM>ObjectControl_Deactivate</EM> are actually 
+event handlers - error inside these methods cannot be propagated to mainstream 
+code where references are being released. We recommend you to put 
+<EM>On Error Resume Next</EM> at the beginning of these methods. 
+<p>Now what to do with ADO objects? Here is what <EM>ErrRlsObjs</EM> does. It checks class name
+of every object it releases, and if it is <EM>ADO Connection</EM> object, then 
+it saves it in internal variable, and clears the reference in parameter. In case if object is  
+ <EM>ADO Recordset</EM> or <EM>Command</EM> object, it retrieves the <EM>Connection</EM> object from object's
+ properties, and saves it in internal variable.  
+This object reference saved in internal variable will be later used and 
+cleared by <EM>ErrorIn</EM>. As a result if you release your ADO object through
+<EM>ErrRlsObjs</EM> you don't need to provide it's reference 
+in a call to <EM>ErrorIn</EM> - in any case it would be Nothing after returning 
+from <EM>ErrRlsObjs</EM>. 
+<p>Let's look at the example: 
+<p>
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Sub</font> ExecUpdateSQL(<font color="#000080">ByVal</font> SQL <font color="#000080">As</font> <font color="#000080">String</font>)
+    <font color="#000080">Dim</font> Conn <font color="#000080">As</font> ADODB.Connection
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+    <font color="#000080">Set</font> Conn = New ADODB.Connection
+    <font color="#000080">With</font> Conn
+        .Open CONNECT_STRING
+        .BeginTrans
+        .Execute SQL
+        .CommitTrans
+        .Close
+    <font color="#000080">End</font> <font color="#000080">With</font>
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+    ErrRlsObjs Conn
+    ErrorIn <font color="#808080">&quot;ExecUpdateSQL(SQL)&quot;</font>, SQL, EA_DFTRBK
+<font color="#000080">End</font> <font color="#000080">Sub</font></pre></code>
+</td></tr></table>
+<p>In case of error the following report is generated:
+<p>
+<table bgcolor='#F0F0F0' border="0" cellpadding=0 width="100%"> <tr valign="top"><td>
+<code><pre>
+Invalid column name 'X'. 
+  Time='04/18/02 09:13:56' App='HuntERRdemo:3.1.0' ADO-version='2.6' Computer='Solo' 
+  Method: ExecUpdateSQL 
+  Number: -2147217900 = &H80040E14 = vbObjectError + 3604 = ERRMAP_APP_FIRST - 1594 
+  Source: Microsoft OLE DB Provider for SQL Server 
+  Description: Invalid column name 'X'.
+  ADO Info: 
+    ADO Version:   2.6
+    DbObject:      Nothing (Connection object was preserved internally)
+    Conn. String: 'Provider=SQLOLEDB.1;Server=;Password=;User ID=sa;Catalog=Northwind;
+    Conn. State:   adStateOpen
+    Error:         Invalid column name 'X'.
+    Error:         Invalid column name 'Y'.
+    Error:         Invalid column name 'Z'.
+  Call Stack: ExecUpdateSQL(SQL='Update Customers Set X = Y WHERE Z = 1')
+    Released Objects: [Connection]
+    Transaction: Attempt to call RollbackTrans succeeded
+    Connection: Attempt to call Close succeeded
+  Call Stack: frmMain.cmdTest_Click() ------------------------------------</pre></code>
+</td></tr></table>
+
+<p>As you see, we didn't need to provide a reference to <EM>Conn</EM> object 
+when calling <EM>ErrorIn</EM> - it is <EM>Nothing</EM> anyway. 
+After method's signature <EM>ErrorIn</EM> has put a note that an object of
+class name [Connection] was released. For additional clarity there is also
+a message saying that although <EM>DbObject</EM> was <EM>Nothing</EM> at the moment of a call to
+<EM>ErrorIn</EM>, the <EM>Connection</EM> object was preserved internally. 
+<EM>ErrorIn</EM> used this reference to retrieve errors, rollback transaction and close connection. 
+The reference was cleared before <EM>ErrorIn</EM> re-raised error, so all references
+are finally gone, and object is destroyed.
+<p>Now you are probably already wondering: why we need all this complexity with ADO object?
+What if we do the following. We use <EM>ErrRlsObjs</EM> to release all non-ADO objects.
+We also change <EM>DbObject</EM> parameter of ErrorIn attribute 
+from <EM>ByVal</EM> to <EM>ByRef</EM>.  <EM>ErrorIn</EM> must set this parameter to <EM>Nothing</EM> 
+before exit, so reference is cleared.
+<p> Unfortunately, it doesn't work, we explain why in <A HREF="#RlsByRef">Appendix</A>.      
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+
+<A Name="StopOnErr" />
+<h3>4.12. Stopping On Error in IDE</h3>
+<p>Since first release of HuntERR many programmers expressed the strong desire 
+to have some way to stop  in failed method immediately when error occurs, 
+before stack unwinding starts. In version 3.1 we introduce this functionality. 
+All you need to do now is add one line to error handler in all methods:
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+errHandler:
+    <font color="#000080">If</font> ErrMustStop <font color="#000080">Then</font> Debug.Assert False: <font color="#000080">Resume</font> <font color="#008000">'Add this line</font>
+    ErrorIn <font color="#808080">&quot;....&quot;</font>
+<font color="#000080">End</font> <font color="#000080">Sub</font> </pre></code>
+</td></tr></table>
+<p>Whenever error occurs in the method <EM>ErrMustStop</EM> will show you message box with 
+the message like the following:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+Error: Division by zero
+Do you want to retry the operation in step mode?
+Click YES to retry, NO to move to the caller, CANCEL for no more stops
+</td></tr></table>
+Message box would have three buttons: <EM>Yes</EM>, <EM>No</EM> and <EM>Cancel</EM>. 
+If you click <EM>Yes</EM>, execution will stop at <EM>Assert</EM> statement in error 
+handler. You can try to figure out what is wrong, fix the bug, and continue in step mode.
+After <EM>Resume</EM> operator is executed you will return to failed operator, so you 
+can retry it. 
+<p>In case if you see that the cause of failure is not in the method where you are stopped,
+but somewhere above the call stack, then you can move up to the caller if you press <EM>No</EM>
+next time the message box appears. When you click <EM>No</EM> <EM>ErrMustStop</EM> would return false, 
+execution will proceed to <EM>ErrorIn</EM> in error handler, which in turn would re-raise the error. 
+If you have similar stop statement in the caller, you again will see message box with 
+the same statement, but now it will be shown from the caller's error handler. You again 
+will have a chance to fix the error, or proceed to the caller.
+<p>If you press <EM>Cancel</EM> button at any time HuntERR will let error go - you will not 
+see any boxes anymore, error handlers will process error in usual way, and you will see
+error report. 
+<p>HuntERR Add-In adds this "stop" line to your error handlers if you check the 
+corresponding box in Add-In's settings dialog. You can suppress this "stop" behavior 
+even when stop statements are in place if you define conditional compilation 
+constant <EM>H_NOSTOP = 1</EM> in project Properties dialog box. 
+<p>Remember that stopping is enabled only in VB IDE; in compiled executable 
+<EM>ErrMustStop</EM> always returns false. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+
+<A Name="CheckDetailed" />
+<h2>5. <EM>Check</EM> Sub: Detailed Look</h2>
+<p>Let's now have a more detailed discussion of <EM>Check</EM> sub functionality. This method's
+functionality had been substantially expanded since version 3.0, so we'll spent some time discussing
+all these features. 
+
+
+<A Name="CheckDecl" />
+<h3>5.1. <EM>Check</EM> Declaration and Overview</h3>
+<p>First let's have a look at <EM>Check</EM> declaration in HuntERR.
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Sub</font> Check(<font color="#000080">ByVal</font> Cond <font color="#000080">As</font> <font color="#000080">Boolean</font>, _
+                 <font color="#000080">ByVal</font> AnErrNumber <font color="#000080">As</font> <font color="#000080">Long</font>, _
+                 <font color="#000080">ByVal</font> AnErrDescr <font color="#000080">As</font> <font color="#000080">String</font>, _
+                 <font color="#000080">Optional</font> <font color="#000080">ByVal</font> Values, _
+                 <font color="#000080">Optional</font> <font color="#000080">ByVal</font> AHelpFile, _
+                 <font color="#000080">Optional</font> <font color="#000080">ByVal</font> AHelpContext)
+</pre></code>
+</td></tr></table>
+<p>The first parameter is a Boolean value to be checked. If this value is True, we'll say that "check passed",
+and "check failed" otherwise. Check failure results in raising error with number 
+and description specified as second and third parameters. <EM>Values</EM> parameter is an array of values that 
+should be embedded into error description. The last two parameters specify values to
+be put into corresponding fields of <EM>Err</EM> object when raising error. Only the first three parameters
+are required, the rest are optional. 
+<p><EM>Check</EM> basic functionality is quite simple. It is used to raise errors and exceptions if some
+ongoing condition(s) require interrupting the mainstream workflow and starting the stack-unwind process. 
+Example:
+<table border='0' cellpadding=0 width='100%'> <tr valign='top'><td bgcolor=#F0F0F0>
+<code><pre>
+Check X &gt; 0, EXC_GENERAL, <font color="#808080">&quot;X may not be negative.&quot;</font></pre></code>
+</td></tr></table>
+<p>With this basic functionality comes a whole set of additional  conveniences that may help you to easily code 
+various condition checks in your applications. We discuss all these features in the following sections. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="CheckPrmDescr" />
+<h3>5.2. Parameterized Description</h3>
+<p>Sometimes when application raises error or exception the description provided with raised 
+error is not a constant string, but should be customized by including current values of some 
+variables. Directly forming the string by concatenating fragments may be really painful to code. 
+To make a life easier Check allows you to specify a template of the resulting message with 
+place-holders like (%1, %2, etc) identifying places where to insert 
+values of variables. The values themselves are provided in Values array. 
+Additionally <EM>Check</EM> helps you to easily build multi-line messages by substituting "||" placeholder with a 
+<EM>NewLine</EM> character. For example, the following command:
+
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+Check Count &gt; 0, EXC_GENERAL, <font color="#808080">&quot;Customer '%1' not found in state '%2'.||Operation cancelled.&quot;</font>, _
+    Array(CustName, State)
+</pre></code>
+</td></tr></table>
+<p>may result in message that looks like this:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+Customer 'Smith' not found in state 'TX'.
+Operation cancelled.
+</pre></code>
+</td></tr></table>
+<p>There may be a much bigger benefit in this embedding technique than simply
+easier coding. It can become a savior if you don't hard-code your messages directly, 
+but store them separately in database or in resource file. Usually it happens if you are 
+creating application that will be internationalized. For such applications 
+using customized messages may pose a real challenge. With the described embedding technique 
+things are much easier. You just store message templates with placeholders in your message tables, 
+whatever they are, and customize them when you use it in code. Your code in this case is independent of 
+target language, even if it has grammar quite different from English. 
+<p>Note that <EM>Check</EM> does the embedding job correctly no matter what values you are 
+embedding. You don't need to worry about situation when the first embedded value 
+contains sub-string that looks like a placeholder (%2 for ex.) - 
+<EM>Check</EM> will do everything correctly. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="CheckAccum" />
+<h3>5.3. Accumulating Messages</h3>
+<p>There are situations when your code needs to check multiple conditions, and build 
+overall message based on results of each check before you raise error or exception. 
+<EM>Check Sub</EM> allows you to perform such accumulation. If you use <EM>ERR_ACCUMULATE</EM> constant 
+as error number parameter (actually it is plain 0) then <EM>Check</EM> doesn't raise error 
+immediately if Cond is False, but adds message to internal buffer available through 
+<EM>ErrAccumBuffer</EM> property. We may say it Accumulates messages in this way. 
+
+After completing all checks application can raise "normal" error or exception  
+providing accumulated message buffer as description. Here is the example of validating user 
+input in multiple fields:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Private</font> <font color="#000080">Sub</font> ValidateAll()
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+    ErrAccumBuffer = <font color="#808080">&quot;&quot;</font>  <font color="#008000">'Clear the buffer</font>
+    Check Trim$(txtAccumName.Text) &lt;&gt; <font color="#808080">&quot;&quot;</font>, ERR_ACCUMULATE, <font color="#808080">&quot;Name may not be empty&quot;</font>
+    Check txtAccumSSN.Text Like <font color="#808080">&quot;???-??-????&quot;</font>, ERR_ACCUMULATE, _
+        <font color="#808080">&quot;SSN entered [%1] is invalid. Should be in format '123-45-6789'&quot;</font>, _
+        txtAccumSSN.Text
+    Check txtAccumPhone.Text Like <font color="#808080">&quot;???-???-????&quot;</font>, ERR_ACCUMULATE, _
+        <font color="#808080">&quot;Phone you entered [%1] is invalid. Should be in format '123-456-7890'&quot;</font>, _
+        txtAccumPhone.Text
+    Check ErrAccumBuffer = <font color="#808080">&quot;&quot;</font>, EXC_MULTIPLE, _
+        <font color="#808080">&quot;Please correct the following errors: ||&quot;</font> &amp; ErrAccumBuffer
+    <font color="#000080">Exit</font> <font color="#000080">Sub</font>
+errHandler:
+    ErrorIn <font color="#808080">&quot;frmMain.ValidateAll&quot;</font>
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+<p>The overall check pass/failure at the end is determined by accumulated buffer:
+if it is empty, it means that all checks passed; if it is not, then at least 
+one of them failed. Don't forget to clear <EM>ErrAccumBuffer</EM> before starting checks. 
+Messages in the buffer are separated with <EM>NewLine</EM> character. As you see, you can also use 
+parameterized messages with accumulation. The resulting message shown to user may look like this:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+Please correct the following errors: 
+Name may not be empty
+SSN entered [123] is invalid. Should be in format '123-45-6789'
+Phone you entered [456] is invalid. Should be in format '123-456-7890'
+</pre></code>
+</td></tr></table>
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="CheckAddnl" />
+<h3>5.4. Sending Additional Tip to HandleError</h3>
+<p>The last two parameters of <EM>Check</EM> Sub match the properties of <EM>Err</EM> object. Their names 
+suggest that it is something to do with Help system, and quite possible you are thinking
+they are of no use for you. But it's not a must that these parameters should carry only 
+what their names suggest. Think of them simply as additional pieces of information that
+you may send in <EM>Err</EM> object to your <EM>HandleError</EM> Sub that performs 
+error resolution. In some situations you may find these parameters very helpful. 
+We give you just one example, user input validation in desktop application.  
+<p>Suppose you implemented a method that validates several values entered by user. If validation
+fails for any of them, you raise exception with appropriate message, which results
+in message box shown to user by <EM>HandleError Sub</EM>. In addition to telling
+user what is wrong with the input you may want to automatically set focus to the control
+that has invalid value - it will make your application look much friendlier. 
+The easy way to do it is to specify the name of the control as <EM>AHelpFile</EM> parameter of 
+<EM>Check Sub</EM>. <EM>HandleError</EM> should check this property, and if it is not empty, 
+set focus to the control. You can easily retrieve
+a control by name using <EM>Form.Controls</EM> collection. We show working example
+of this technique in HuntERR Demo Application. 
+<p>You've got the idea. You can probably find some other uses for these two parameters. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="CheckMsgSrc" />
+<h3>5.5. MessageSource Object</h3>
+<p>As we said before <EM>Check Sub</EM> is just a convenient substitute for <EM>If...Then Err.Raise...</EM>
+combination. Most of the time these two methods are equivalent, except one case, 
+when <EM>Check</EM> is at serious disadvantage. It happens when you have your messages 
+not directly hard-coded in your program, but stored in some table or file. The problem
+is that the message must be retrieved before you call <EM>Check</EM>, even if it will not
+use it because the condition being checked is True. With <EM>If...Then...</EM> construct 
+you can first check the condition, and only if it is false you proceed to retrieve the 
+message from storage. Considering the fact that 
+conditions being checked are expected to be True much more often than False, then
+using <EM>Check</EM> may bring some unnecessary overhead.
+<p><EM>Check</EM> provides the way around the problem. Instead of specifying the message directly
+when calling <EM>Check</EM> you can provide message index, or key, which identifies message in
+your storage. Message itself would be retrieved by <EM>Check</EM> through <EM>MessageSource</EM> object, 
+which you provide to HuntERR through <EM>ErrMessageSource</EM> property. 
+This object must have <EM>GetMessage</EM> method, which returns message by index/key.
+It is up to you to decide how messages are indexed. 
+<p>Message key in <EM>AnErrDescr</EM> parameter is detected by starting pound (#) character. That is, 
+if message source object was provided by application, and <EM>AnErrDescr</EM> parameter starts with # sign,
+then <EM>Check</EM> assumes that this is message key, so it calls <EM>GetMessage</EM> function of <EM>MessageSource</EM>
+object to retrieve the message. It sends <EM>AnErrDescr</EM> parameter value as 
+a  parameter of <EM>GetMessage</EM>.
+The format of message index or key is defined by your application itself, you can accept 
+any rules you want regarding this. The only thing required is that reference starts with #
+sign. 
+<p>HuntERR Demo Application shows additional technique that you may use. 
+The biggest problem with storing messages in some storage instead of hard-coding them
+is missing entries. You enter message index 123 in code, make a note that you must add #123
+to a file, but forget to do it. It is very difficult to catch all situations like this 
+during application testing. Some of them are shown only if specific errors or situations occur, 
+and it may never happen during testing. The worst thing happens: application tries to 
+show appropriate message to user, doesn't find it, and shows "message not found". 
+There is nothing more damaging for your reputation as a programmer than "Message #123 not found" 
+message box. It can drive users crazy. Program rejects their input, they want to know 
+what is wrong, but instead they get this <EM>Not Found</EM> nonsense. 
+<p> The safe way to go then is to hard-code the default message together with message index. 
+This default message would be shown if the original message is not found in storage. 
+This may save your face in this situation. 
+As this default message duplicates stored message most of the time then it makes your code
+more clear, as in addition to message index (12345 for ex.) you specify what is the corresponding
+message is about. HuntERR Demo application shows the example of how this can be done. It uses
+convention that message tag formatted as follows: it starts with #, followed by message index, 
+then two pipe characters, then default message. Again, these conventions are at full discretion 
+of application. <EM>Check</EM> simply passes <EM>AnErrDescr</EM> from caller method to 
+<EM>MessageSource.GetMessage</EM>, and expects to get the message. 
+<p>See HuntERR Demo Application for more implementation details.
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+
+<A Name="UseHuntERR" />
+<h2>6. Using HuntERR</h2>
+<p>
+
+
+
+<A Name="WellBehCmp" />
+<h3>6.1. Well Behaved Components</h3>
+<p>In this section we would like to have a look at the problem of error 
+handling in a broader context of enterprise development, and focus on component
+architectural level. 
+<p>Lets try to formulate what features, what behavior in error-handling would make 
+a software Component a good participant in enterprise system. Lacking the better term we'll call 
+this set of features Well Behavior in Error Handling.
+We think there are three basic rules of conduct that make up Well Behaved Component.  
+<ol>
+<li><p><STRONG>Well Behavior regarding its own errors</STRONG>. 
+	Component should never crash itself. 
+	In case of internal failure it should build error report that alone should be enough to spot the 
+	problem and to fix it. A good basic assumption is that ERRORS ARE NOT REPRODUCEABLE
+	AT ALL, so error report is the ONLY INFORMATION 
+	that doctor will have to prescribe the cure. This error report should be logged somewhere
+	but never lost. The client component that requested the failed operation should be properly 
+	informed about the failure, and error report must be available to client as well.  
+<li><p><STRONG>Well Behavior as Client</STRONG>. 
+	 Suppose the Component acting as client requests  some service from 
+	other component in the system (Server), and this other Server runs into error when 
+	processing request. Well behavior as Client means that in situation like this 
+	the Component should collect all available information about error
+	 from the failed Server and include it into Component's own error report. 
+	 In other words the Component should care about error information from its servers 
+	 in the same way it cares about its own error information - collect it, log it, pass it to 
+	 the caller.
+	  
+<li><p><STRONG>Well Behavior as Server</STRONG>.
+	Suppose the Component acting as server processes request from other component (Client) and 
+	runs into error caused by invalid request. Well Behavior in this case 
+	means that Component should help the Client as much as possible to figure out what is wrong 
+	with the request. A simple and very helpful thing to do is to include invalid request 
+	data into error message sent back to Client.
+</ol>  
+
+<p>Although these rules seem obvious and quite reasonable to follow, 
+it's amazing how often they are violated or even completely ignored. 
+We'll give just one well-known example. 
+<p>Famous "ActiveX component can't create object" is a textbook example of 
+BAD behavior as Server. Your application (Client) requests COM services (Server) to 
+perform a service - create an object identified by ProgID. If something goes wrong 
+(misspelled ProgID for example or mess in the Registry) 
+COM fires an error with "ActiveX can't.."
+description, which doesn't include failed ProgID. Probably COM assumes 
+that application knows what ProgID it is talking about - the one that application
+just used in a failed call to <EM>CreateObject</EM>. 
+However it becomes a real problem if application calls <EM>CreateObject</EM> 
+several times in a row  for different ProgIDs, probably even in one procedure. 
+In this case even the power of <STRONG>HuntERR</STRONG> cannot help -  
+failure in any of these <EM>CreateObject</EM> calls results in exactly the same error message 
+and error report, and you have to guess which ProgID caused the error. 
+The obvious solution is to make a "wrapper function" for <EM>CreateObject</EM> that reports 
+ProgID in its error report. Essentially this wrapper turns COM services into Well Behaved Server. 
+<p>You can probably recall situations when third-party applications 
+were failing with this error message. These situations are usually easily fixable 
+ -  re-registering COM DLL helps most of the time. But you have to know
+ the component name, and error message doesn't provide it. Not much you can do in this 
+situation. Just the same old Guess-Try-Pray-Fail exercise. 
+Obviously including ProgID into error message (i.e. <EM>Well Behavior as Server</EM>) 
+could help a lot in this situation.
+ 
+<p>Staying with behavioral terminology Rule #1 (caring about internal errors) 
+seems to be about internal discipline of the software component, 
+while Rules #2 and #3 (Well Behavior as Client and Server) are about component's public conduct. 
+There is an interesting twist here. The two public conduct rules are applicable 
+to internal behavior of the component as well,
+if you think about objects and functions calling each other inside
+your component as clients and servers. 
+<p>Thus general rule about rules comes up: 
+<p><b><font size=2><i>To get well behavior in a system, one should enforce well behavior, 
+both internal and external, at all levels of system hierarchy.</i></font> </b>
+
+<p>We think that many problems in enterprise development originate in bad error-handling 
+behavior of components. We urge you to build Well Behaved ones. 
+<p><STRONG>Hunt<EM>ERR</EM></STRONG> can help you with this. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+
+
+<A Name="MidTier" />
+<h3>6.2. Shift to the Middle Tier</h3>
+<p>There is one important change that <STRONG>HuntERR</STRONG> may bring into architecture of 
+your multi-tiered applications.
+<p>For the most part the functionality of presentation tier (ASP scripts) and 
+middle tier (COM business objects) is interchangeable. Most of the things you can 
+do in middle tier you can do in VBScript in ASP. 
+Standard recommendation for choosing where to implement stuff is the following:
+without strong arguments in favor of ASP do it in the middle tier. 
+Business COM objects are a better place for implementation for at least two reasons -
+much faster execution of compiled code in COM objects,  and the fact that code 
+in VB COM libraries is much easier to organize, maintain and reuse than script in ASP pages. 
+<p>However there was always a practical consideration that
+favored script - when things are going wrong script is much easier to debug. 
+To see variable value at a particular moment in script you just add "Response.Write ... " operator, 
+hit the page again, and see the value shown on the page in browser. 
+When you want to see something inside COM object then things
+are not so easy. You have to open VB DLL project, add some print-to-log command, 
+rebuild and re-deploy the DLL, hit the page again, and finally open the log file
+(whatever it is) to see what you wanted to see. 
+We think that this consideration of easier debugging is keeping in today's applications 
+much more of functionality implemented in ASP script than this environment really deserves.
+ 
+<p>With <STRONG>HuntERR</STRONG> watching and reporting errors things may really change. 
+Now it becomes easier to investigate errors happening in 
+COM objects than errors in VB script. If error happens, you don't need to add any 
+debug printing. You just hit the ShowErrors.asp page or alike, and see the whole story 
+in error report. 
+
+<p>This change in debugging suggests that you may need to re-evaluate your options, and implement
+much bigger part of functionality in middle tier than you used to.  
+We advocate (and practice ourselves) the extreme approach - to move it ALL to the middle tier, 
+or as much as possible. The best ASP script in our opinion is the one that declares 
+only one variable - business object. Script creates its instance, feeds it with information 
+from the request, calls some <EM>DoTheJob</EM> method, and then goes on to generate 
+the page using object's properties to get data values on-the-fly and insert them into HTML. 
+
+<p>Shifting stuff to middle tier actually means that you may finally start doing things 
+as they should be done - all functionality is implemented in compiled components, 
+and script is just a light-weight connector between components and IIS. This is just one 
+of <STRONG>HuntERR</STRONG>'s many positive side effects - there will be many others.     
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+
+<A Name="ArchDesign" />
+<h3>6.3. Architecture Design Tips</h3>
+<p>Error Handling should be essential part of your application's functionality, 
+and it should be designed with the same care and attention to details 
+as the mainstream functionality.  
+Here are some general issues that we recommend you to address during architectural design
+of your application:
+<ul>
+	<li><p><b>Libraries and services you use</b>. 
+	  Analyze error behavior of all components you are going to use
+	 - COM Servers, APIs, system and remote services. 
+     Identify those servers or methods that don't behave well as servers. 
+	 Write wrapping methods or even classes for them to ensure that they fit well into 
+	 <STRONG>HuntERR</STRONG> model. Make a list of error extractor classes you will need to create
+	 and include them into your object model. 
+  <li><p><b>Clients that use your services.</b> If you design application that will work as 
+  a server or service provider for other application(s) then get to know error-handling behavior
+  of your clients. The main question is - will they care enough about your error information?
+  Is it enough to make error report available to client application, 
+  or your component has to save it by itself? Will the client include error information 
+  into it's own error message, and persist it, 
+  so that you will be able to view it later? If the answer is negative, or you are not sure, then 
+  your application should persist error report by itself. 
+  <p>Remember - your components will be always assumed guilty for application failures 
+  unless you prove otherwise with error report in hands. It is middle tier - by nature the center 
+  of all troubles. Never let the error report to be lost, and don't count too much 
+  on others to keep it for you.   
+
+  <li><p><b>Error Reporting Pathways </b>should be outlined on your activity and 
+  collaboration diagrams, together with communication pathways for mainstream messages. 
+  Each pathway should end with resolution point where you persist error report.
+
+  <li><p><b>Persisting Error Report.</b> Decide on how you will persist error report - 
+   to a text file, database, or System Event Log. If you decide to go on with database, and 
+   want to use default support from <STRONG>HuntERR</STRONG> then you should create error log table 
+   and stored  procedure in your database.  
+	<p>We provide SQL scripts for creating necessary database objects. Run them 
+	against your database. The script will create database table <EM>tblErrorLog</EM> 
+	and stored procedure <EM>spErrorLogInsert</EM>. When these objects are in place you can use
+	<EM>ErrSaveToDB</EM> method to save error report. These database objects then will
+	become a part of your data model. 
+
+  <li><p><b>User Notification About Failure.</b>
+    If your application is interacting directly with user, decide how it will bring him bad news about
+    application error. There is not much sense in showing error report to end user, so you'll
+    have to come up with some "Sorry, we have problems, contact support" page or dialog trying to keep
+     a good face in a bad game. This same page can contact support automatically by sending email 
+     with error information (with user permission if done on client side). This scenario 
+     should be detailed in your design documents as well.    
+
+  <li><p><b>Object Model. </b> There are certain implications on the design of object model when 
+  error handling comes into play. Essentially all methods of your objects must have two ways of
+  returning back from the call - standard successful one, and return with failure. When you are
+  using VB error handling the failure return is provided by VB through 
+  raising errors mechanism. If some method cannot raise error because 
+  of client's poor ability to catch it then method should have second explicit way of returning 
+  with failure.  
+  The simplest way of implementing such a failure return 
+  - implement method as a function returning Boolean False in case of failure.
+  
+  <p>All this will be happening on the borders of your component - in methods and objects 
+  exposed to outside world. With error handling in mind the special 
+  nature of publicly exposed methods needs careful planning. We advise you to 
+  put all these externally called methods into separate classes, 
+  which will form interface layer of your component. These public 
+  methods SHOULD NEVER BE CALLED from inside of your component, because they have 
+  error-handling behavior different from component's internal model. 
+
+   <li><p><b>Developer's access to error log. </b> Decide on how developers and administrators
+   will access the error log. This mechanism may be different for development and production environments, 
+   but it definitely must be in place in both of them. For WEB applications we recommend creating 
+   special page on your site that would show the error log. Error log then becomes easily accessible remotely. 
+   This works for error log in text file or database table. For system event log things are more complicate
+   - you have to log on to server to see it. Once again we don't recommend using Event Log 
+   for persisting errors.
+   
+  <li><p><b>Error Handling Test. </b> 
+    We find it necessary to have some quick and simple way to test application's 
+    error handling itself. We are not talking about one-time test at first deployment
+     but some permanent embedded function that will allow you 
+    to easily generate error at "far end" of your application and see how it is handled. 
+    Error-handling functionality may eventually break down itself. 
+    For example, database where you save error reports may become unavailable 
+    to your components because of misconfiguration. Your application may start behaving badly, 
+    but nothing appears in error log - in this case the first thing to do is to test error 
+    handling itself. 
+    <p>The way you implement this quick test depends on your application. We'll give one example
+    of how it can be done. If you have a stored procedure that is called to check
+    user login information, you may add a statement that intentionally raises error for 
+    some reserved user name and password, like this:
+<table border="0" cellpadding=0 width="90%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+-- TSQL: inside spUserLogin
+   IF @UserName = 'raiseerror' AND @Password = 'please'
+       RAISERROR("Error is raised following your request.", 18, 1)
+</pre></code>
+</td><td></tr></table>
+    <p>Now you can easily generate error in your application by trying to login as "raiseerror" with
+    password "please". 
+</li>
+</ul>
+
+<p>You can and probably will come up with your own additional practices and rules
+in error handling. Many of them are applicable not only to one specific project, but to many of them.
+It's worth writing them down into <EM>Error Handling Policy</EM> document, 
+which can be part of your company's <EM>Design Standards</EM> document set. 
+Quite possible you didn't have such a document in the past - without reusable technology of error handling there 
+was not much to standardize. In every application developers built custom error handling 
+adapted to application specifics, trying to get the most in trapping errors without excessive coding. 
+<STRONG>HuntERR</STRONG> provides you with powerful, reusable and consistent technology of error handling, 
+and thus makes it possible and necessary to establish some default rules of applying it in your projects.
+Each project may have its own specifics - design standards should not set the rigid 
+rules that are a must, but rather default and recommended ones that may be excepted if necessary.
+
+<p>And the last friendly tip: if your clients are not comfortable with so much error-handling stuff 
+in design documentation (...aren't we shooting at a perfect thing?...), just ask them if they 
+are OK flying jets equipped with life jackets, oxygen masks and black boxes. 
+This will help to explain your point.
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="Wrapper" />
+<h3>6.4. Example: Creating a Wrapper</h3>
+<p>We'll give an example of how to build a wrapper function that turns a not well-behaved 
+function into well-behaving one.  It is a real-life listing 
+of <EM>CreateInstance</EM> method of <EM>ujTransaction</EM> class.   
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Function</font> CreateInstance(<font color="#000080">ByVal</font> ProgID <font color="#000080">As</font> <font color="#000080">String</font>) <font color="#000080">As</font> Object
+    <font color="#000080">On</font> <font color="#000080">Error</font> <font color="#000080">GoTo</font> errHandler
+    <font color="#000080">Set</font> CreateInstance = CreateObject(ProgID)
+    <font color="#000080">Exit</font> <font color="#000080">Function</font>
+errHandler:
+    Err.Raise Err.Number, Err.Source, Err.Description &amp; _
+        <font color="#808080">&quot;: ujTransaction.CreateInstance('&quot;</font> &amp; ProgID &amp; <font color="#808080">&quot;')&quot;</font>
+<font color="#000080">End</font> <font color="#000080">Function</font>
+</pre></code>
+</td></tr></table>
+<p>As you see, all you need to do in a wrapper is include original error 
+description and parameters of the client request into error message. This wrapper 
+doesn't use ErrorIn in error handler. We are showing it as an illustration  that Well Behavior as Server 
+doesn't necessarily mean using HuntERR. However you can put a normal HuntERR-style 
+call to <EM>ErrorIn</EM> function into error handler. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="ProjSetup" />
+<h3>6.5. Setting Up Your Projects</h3>
+<p>To use HuntERR in your application you have to include <STRONG>HuntERR</STRONG>
+ source files into your VB project(s).
+The following table contains the list of source files coming with <STRONG>HuntERR</STRONG> with  
+brief instructions on how to use them.
+ </p>
+<p>&nbsp;</p>
+
+<table border="0" cellpadding="3" cellspacing="3"  width="90%">
+	<tr>
+		<th width="150px" valign=top><STRONG>Source File</STRONG></th>
+		<th><STRONG>Description/Instructions</STRONG></th>
+	</tr>
+	<tr>
+		<td  valign=top><p>&nbsp;HuntERR31.Bas</td>
+		<td><p>Main HuntERR library file. Include it into all projects where you are going
+			to use HuntERR for error handling. </td>
+	</tr>
+	<tr>
+		<td  valign=top><p>&nbsp;HuntERR31SysH.Bas</td>
+		<td><p>System exceptions handling methods. Include it if you are going to use 
+		this functionality.  </td>
+	</tr>
+	<tr>
+		<td  valign=top><p>&nbsp;ujTransaction.Cls</td>
+		<td><p>Transaction control class. Include this file into COM DLL project if 
+		you are going to control COM+ transactions in the way described in 
+		<EM>COM+ Transactions</EM> section of this document. Make sure its 
+		MTSTransactionMode property in VB and Transactional property in COM+ 
+		is set to <EM>Requires New (Transaction)</EM>
+	</tr>
+	<tr>
+		<td  valign=top><p>&nbsp;ujEEDomDoc.Cls</td>
+		<td><p>Error extractor for MSXML DOMDocument COM Class. Include it if you are going to use
+		MSXML library . For specific COM servers that your application uses you'll have to
+		create your own custom extractor classes.</td>
+	</tr>
+	<tr>
+		<td  valign=top><p>&nbsp;frmShowError.frm</td>
+		<td><p>A simple form to show error report when application runs in VB IDE. 
+		Include it during development into your EXE project or EXE application that you use 
+		to test your COM Server. Assign <EM>frmShowError.ErrorReport = Err.Description</EM> 
+		in your error resolution method.</td>
+	</tr>
+</table>
+
+<p>&nbsp;
+<p>You may need to set conditional compilation arguments used by HuntERR. To define 
+argument(s) right-click on your project in Project Explorer in VB, and select <EM>Properties</EM> from
+popup menu. Switch to <EM>Make</EM> tab. Enter argument assignment in the box 
+<EM>Conditional Compilation Arguments</EM>. Use colon (:) to separate definitions if you have more than one:
+<code><pre>
+    H_NOCOMPLUS=1 : H_EXTBASE=1 : H_NOENUMS=1
+</pre></code>
+ 
+<p>The following table lists conditional compilation arguments used by <STRONG>HuntERR</STRONG>:   
+<p>&nbsp;
+
+<table border="0" cellpadding="1" cellspacing="5" cellpadding="5"  width="90%">
+	<tr>
+		<th width="150px" valign=top><STRONG>Argument Definition</STRONG></th>
+		<th><STRONG>Description</STRONG></th>
+	</tr>
+	<tr>
+		<td  valign=top>&nbsp;H_NOCOMPLUS=1</td>
+		<td><p>Identifies that project doesn't use COM+ services, so source lines in HuntERR
+		that use these services will be excluded. </td>
+	</tr>
+	<tr>
+		<td valign=top>&nbsp;H_NOENUMS=1</td>
+		<td><p>Identifies that you have Enum ENUM_ERRMAP declared in some public class, so 
+		it should be excluded from HuntERRxx.Bas during compilation.
+	</tr>
+	<tr>
+		<td valign=top>&nbsp;H_EXTBASE=1</td>
+		<td><p>Identifies that error ERRMAP_BASE is defined in other module. This constant 
+		sets the starting number for error ranges defined by ENUM_ERRMAP enumeration. You 
+		may need to shift these ranges if you use third-party components that already 
+		use some ranges above vbObjectError. On example is OracleObjects that use 
+		error numbers in [vbObjectError + 4096...8192]. If you use OracleObjects then you
+		 should set <EM>H_EXTBASE=1</EM> and define the following constant in some BAS module:
+		<table border="0" cellpadding=0 width="100%"> <tr valign="top" align=left><td bgcolor=#F0F0F0 align=left>
+		<code><pre><div align=left>
+		<font color="#000080">Public</font> <font color="#000080">Const</font> ERRMAP_BASE = vbObjectError + 8192</div></pre></code>
+		</td></tr></table>		 
+	</tr>
+	<tr>
+		<td valign=top>&nbsp;H_NOSTOP=1</td>
+		<td><p>Set this variable to prevent stopping on error in VB IDE, if you have 
+		stop-on-error operators in error handlers. This is just a simple way to make HuntERR
+		ignore these commands in VB IDE without going through code and removing them one-by-one. 
+	</tr>
+</table>
+<p>&nbsp;
+<p>And this is it. You are ready to go with <STRONG>HuntERR</STRONG>.  
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="CodingTips" />
+<h3>6.6. A Few Coding Tips</h3>
+<p>Here are a few coding tips, things good to remember when coding:  
+<ul>
+    <li><p>During coding constantly scan and analyze your code asking yourself 
+    questions: what if error happens here? What error report will I get? Will I be able 
+    to spot the location and cause of error from error report? Adjust your code accordingly.  
+
+    <li><p>Identify global and module level variables that should be included into error reports. 
+    Examples of obvious candidates: connection strings, application settings, 
+     user original input. Add these variables to <EM>ErrorIn</EM> calls in appropriate places. 
+
+    <li><p>Avoid long multi-line procedures. It is a good thing to do in any case. 
+    As for error handling all code lines in a procedure are protected
+    by one error handler at the end, so the more lines you have, the more difficult it will be to spot
+     from error report the line where error occurred . 
+    
+    <li><p>Keep your eye on situations when your code routinely repeats some operation several times in a row. 
+	These operations are likely to generate identical error messages, making it 
+	difficult to spot the troubled operator from error report. Always scan you code 
+	for situations when two different errors (i.e. the same error in different places)
+	 may result in the same error report. 
+
+    <li><p>Avoid using automatic type conversion, especially in actual parameters in method calls.
+    Use explicit conversion through your own wrappers of <EM>CStr</EM>, <EM>CDbl</EM>, and alike functions, so that
+    you will see more than just "Type mismatch" message but some specifics - conversion of 
+    what value to what type failed.   
+
+	<li><p>Remember that BAS modules are instantiated on per-library basis. That is why 
+	<STRONG>HuntERR</STRONG> uses properties of <EM>Err</EM> object 
+	to transfer error information between <EM>ErrorIn</EM> calls 
+	in unwind process instead of module-level variables. 
+	Make sure before using <STRONG>HuntERR</STRONG> 
+	properties that <EM>ErrorIn</EM> was called at least once from current library's code. 
+
+	<li><p>If you need to do some extra activity in error-handling block before you call 
+	<EM>ErrorIn</EM> then call <EM>ErrPreserve</EM> before you do anything. This will preserve <EM>Err</EM> object's 
+	properties for later use by <EM>ErrorIn</EM>, and your extra code doesn't need to worry about
+	preserving it. Again, <EM>Err</EM> object is cleared easily by <EM>On Error...</EM>, 
+	<EM>Exit Function</EM> and other statements. 
+</ul>
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="AddIn" />
+<h3>6.7. HuntERR Add-In for Visual Basic</h3>
+<p>We provide VB6 Add-In for automating the process
+of adding <STRONG>HuntERR</STRONG>-style error handlers to your code. You can use it to add error 
+handlers in one-at-a-time manner, or you can add handlers to all methods in your code module. 
+This mass-insertion feature allows you to quickly migrate your existing code to <STRONG>HuntERR</STRONG>-style 
+error handling. Add-In is easy to use, and we hope you quickly figure out everything about it yourself. 
+We'd like to provide just some introductory comments. 
+
+<p>To install Add-In locate it in <STRONG>HuntERR</STRONG> directory, and register it using 
+<EM>regsvr32.exe</EM> Windows registration application. You may want to move it to VB98's  AddIn folder, or 
+to WinNT\System32 before the registration. Then start Visual Basic IDE and select 
+<EM>Add-In | Add-In Manager</EM> from main menu. In the list that appears locate <EM>HuntERR Add-In</EM>, 
+click it, and check the <EM>Loaded/Unloaded</EM> box. Close the dialog. 
+<p>If you select <EM>Add-In</EM> menu again, you will see two new commands: 
+<EM>[HuntERR: Insert Error Handler]</EM>, and <EM>[HuntERR Control Panel]</EM>. 
+The first command directly inserts <STRONG>HuntERR</STRONG>-style error handler into 
+property, function, or sub procedure where cursor is located. 
+Selecting this command will first bring popup window that gives you preview of your 
+procedure with inserted error handler. Confirm or cancel the operation. 
+Uncheck the box at the bottom of the dialog if you want to skip this dialog in the future. 
+You can use shortcut sequence <EM>&lt;Alt&gt;-A,I</EM> for fast command selection.
+<p>The inserted error handler may be customized in HuntERR Control Panel dialog. 
+Select <EM>Add-In|[HuntERR Control Panel]</EM> menu command. 
+A dialog window with 3 tabs will appear. 
+
+<p>The first <EM>Options</EM> tab allows you to customize error handlers being inserted.
+ These options apply both to "one-method" insertion and "whole-module"
+command on <EM>Current Module</EM> tab. 
+
+<p>When inserting the handler Add-In tries to guess whether it is "externally"-called procedure, 
+or just internal, private one. Add-In takes into consideration type of module 
+and private/public type of current procedure. Of course, the guess
+is not always accurate, add-in doesn't know how exactly you are going to use your module or method.
+Depending on "guessed" procedure type add-in might use different "styles" of inserted error handler. 
+You may specify names of constants to use as <EM>ErrorAction</EM> parameter in each case, and additionally  
+method to call after <EM>ErrorIn</EM> in externally called methods. 
+<p>The second <EM>Module</EM> tab you can add error handlers to all procedures in your code 
+module. You can migrate your existing code to HuntERR error handling 
+using this mass-insertion feature. 
+<p>When inserting error handlers to all procedures in code module add-in can skip 
+"trivial" properties that don't need error handlers. 
+Add-in identifies as "trivial" a property that has no error handler, 
+has zero or one parameter, and has no more than two simple assignments statements in its body. 
+You may choose not to add error handlers to properties like this. 
+<p>Processing the whole code module is a tricky process. You probably will do it several 
+times before you get what you want. Add-In provides you the way to roll-back the whole 
+operation. If you don't like what add-in did to your code, just bring the dialog again
+and press <EM>Undo the last operation</EM> button. 
+This "Undo" feature is independent from standard <EM>Edit|Undo</EM> IDE command
+<p>The last tab shows About information
+<p>You can download <STRONG>HuntERR</STRONG> add-in source code from our site. 
+<A href="mailto:feedback@urfinjus.net?subject=HuntERR Add-In">Your feedback</a> 
+about Add-In is welcome. HuntERR Add-In is a copyrighted software, is part of HuntERR software package,
+and is distributed under its terms and conditions of use. 
+
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+
+<A Name="Final" />
+<h2>7. Final Thoughts</h2>
+
+<A Name="BugsErrors" />
+<h3>7.1. Bugs, Errors and Application Malfunctioning</h3>
+<p>Let's have a refreshed look at the whole problem of bugs and errors. First let's give 
+some basic definitions.  
+<UL>
+<LI>A <STRONG>Bug</STRONG> is a state of the source code when some part of it 
+is coded incorrectly. A bug in your code may result in one of the following unpleasant events
+(we leave out compilation errors):
+<LI><STRONG>Run-Time Error</STRONG> - an event during program execution, 
+interruption in normal workflow, when execution cannot continue as programmed. 
+Unless they are completely suppressed, run-time errors usually manifest themselves openly. 
+We all know what they are. 
+<LI><STRONG>Application malfunctioning</STRONG>- application running without errors, 
+but not doing what it is supposed to do. 
+</UL>
+<p>Our ultimate goal in any software project is to deliver bug-free application. We do it by
+eliminating bugs one-by-one starting with the first compilable version. 
+To eliminate a bug we must first discover the fact that it is there. It is easier to do if 
+application manifests the fact explicitly with run-time error.  This brings us to the following strange 
+but true conclusion:
+<p>
+<b><font size=2><i>Errors are good - they help us find bugs.</i></font> </b>
+<center>
+</center>
+<p>
+<p>Yes, errors are good fellows. They are messengers about bugs. Don't blame messengers, but 
+try to get maximum information from them. We are talking here about changing attitude 
+towards errors. For many programmers Error is a horrifying event that they try to avoid as
+hard as they can. Application continuing doing wrong things seems a better outcome 
+than application exploding with run-time error. 
+And raising errors on purpose as we do with exceptions 
+is then can be well viewed as an act of pure insanity. 
+If you have this kind of attitude - you'd better 
+change it. With HuntERR errors may become your friends. 
+<p>First, don't let errors go unnoticed by suppressing or ignoring them. 
+Second, detect faulty situations and generate errors whenever possible. 
+Don't hesitate to put extra validation code  
+and to raise error immediately when you detect that something is wrong. 
+HuntERR will take over the situation and deliver the message to you. In our experience 
+extra validation code has negligent negative impact on performance in most cases, 
+but can make a huge difference in time spent in debugging, testing and application maintenance.     
+Application malfunctioning faults are much more difficult to detect and fix than 
+plain run-time errors. Detecting malfunctioning is a job 
+that keeps busy QA departments in many companies. So while coding try to turn malfunctioning faults
+into errors, whenever possible. Make your application blow up with error report window
+instead of silently continuing along the unknowingly wrong path of execution.  
+<p>And finally - try Exceptions. It's absolutely OK to raise error just to jump to the caller,
+it's not insanity. It is very powerful mechanism that may greatly benefit your applications, 
+particularly  their architecture. 
+Try them - you will never regret, and will never want to come back to the world without them. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<h3>7.2. What will happen</h3>
+<p>In this last section we'd like to give you a warning about what will happen if you decide 
+to go on and give <STRONG>HuntERR</STRONG> an opportunity to handle errors in your application. 
+Don't worry - wonderful things will happen. 
+
+<p>You will enjoy bumpless ride of coding mainstream functionality without spending 
+any time on thinking about errors and handlers. You type method header, press Enter, VB appends
+<EM>End ...</EM> operator; then you press &lt;Alt&gt;-A,I and <EM>HuntERR</EM> Add-In inserts error handler. 
+And that's it! You turn to main business with confidence that errors are taken care
+of, and in such a way that they have no chance to make a big trouble. 
+<p>You will move much faster when coding, debugging and testing your application. 
+Most of the time you will not need to go into step mode in debugger - you 
+will see error report immediately, and at a glance will understand what is wrong 
+and how to fix it. You will be able to quickly fix any error that happens on remote server, where
+your components are installed as a part of a bigger system.   
+<p>But the main thing that will happen is that you will be producing really rock-solid code. 
+You will gain much more confidence in what you do, and reduce greatly a chance factor in your work. 
+No more endless periods of inexplicable crashes when "everything is almost working", but not quite yet
+because you can't catch this mysterious error that happens from time to time, and breaks everything.  
+Your components either work OK, or you fix the problem immediately when it appears.  
+You will get much more control over development process, will be able to estimate accurately 
+the time you need to do the job, and do it on time. 
+<p>This will happen, believe us. Enjoy the ride.  
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="Appends"/>
+<h2>Appendixes</h2>
+
+<A Name="QkStart" />
+<h3>A1. HuntERR Quick Start Guide</h3>
+<p>Here is a quick start guide the simplest case: EXE application, possibly using 
+COM classes in a separate DLLs, which are part of the project group. 
+<OL>
+	<LI>Register HuntERR Add-In DLL in your system. Launch Visual Basic, load your project group.
+	<LI>Select Add-Ins|[Add-In Manager] menu command, in dialog that appears find 
+	HuntERR Add-In in the list, select it, make sure [Load/Unloaded] and [Load On Start-Up]
+	boxes are checked, check them if they are not. Click OK. 
+	<LI>Select Tools|Options menu command in VB, switch to General Tab; select [Break
+	On Unhandled Errors] option. Click OK.
+	<LI>Add HuntERR31.Bas  to each project in a project group. Add frmShowReport.frm
+	to EXE project ONLY.
+	<LI>Define H_NOCOMPLUS=1 in conditional compilation arguments in Properties dialog of 
+	every project in a project group. 
+	<LI>For each Form Module: Select Add-Ins|[HuntERR Control Panel] Menu command; 
+	In Options page, select Delete option button, 	check [Use Error Action ...] 
+	check box, make sure that text boxes show "EA_NORERAISE" and "HandleError" strings;
+	check [Add Stop On Error Operator] box; all other check boxes must be unchecked. 
+	Switch to Module tab;make sure 
+	[Don't add...] check box is checked. Click [Insert Error Handlers] button. Confirm OK in
+	a message box that appears. Repeat these steps for each form code module in your project.
+	<LI>For each non-form  code module: Select Add-Ins|[HuntERR Control Panel] Menu command; 
+	In Options page, select Delete option button, 	UNCHECK [Use Error Action ...] 
+	check box, check [Add Stop On Error Operator] box; 	 Switch to Module tab; 
+	make sure 	[Don't add...] check box is checked. Click [Insert Error Handlers] button. 
+	Confirm OK in a message box that appears. Repeat all steps for every non-form code 
+	module in your project.
+	<LI>Copy the following code to some .Bas module in main EXE project; you may need to
+	do it also for DLL projects where you have Form modules. 
+<p>
+<table border="0" cellpadding=0> <tr valign="top"><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Public</font> <font color="#000080">Sub</font> HandleError()
+    <font color="#000080">If</font> InException <font color="#000080">Then</font>
+        MsgBox Err.Description, vbOKOnly, <font color="#808080">&quot;Exception&quot;</font>
+    <font color="#000080">Else</font>
+        <font color="#000080">If</font> ErrInIDE then frmShowError.ErrorReport = ErrReport
+        ErrSaveToFile
+    <font color="#000080">End</font> <font color="#000080">If</font>
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+</LI>
+	<LI>Compile and run project group or project. HuntERR is watching your errors now.  
+	If you can't compile - then probably you need to do some extra configuration, 
+	and you'll have to read more of this document. 
+</OL>
+
+
+<A Name="RlsByRef" />
+<h3>A2. Releasing ByRef Object Parameters - When It Doesn't Work</h3>
+<p>In this section we are going to explain why setting <EM>ByRef</EM> parameter 
+inside the method doesn't always change the original variable in the caller, 
+hence we can't clean-up object reference through <EM>DbObject</EM> parameter 
+of <EM>ErrorIn</EM> function.
+<p>The first thing to notice is that normally parameters with <EM>ByRef</EM> attribute 
+require the actual argument to have exactly the same data type as method's parameter.
+This is true for at least all numeric and string data types - VB simply wouldn't 
+compile if there is a mismatch. This rule seems quite natural - <EM>ByRef</EM>
+means sending a pointer to a variable, so the called method is manipulating the original
+variable directly, so it must be sure that it interprets correctly
+the information referenced by pointer. 
+<p>Now recall that <EM>DbObject</EM> is declared <EM>ByVal</EM> with data type <EM>Object</EM>. 
+Object data type allows application to pass any of three ADO objects: 
+Connection, Recordset or Command. Does this type mismatch prevent us from 
+declaring parameter <EM>ByRef</EM>? No, we can,  and the reason is that VB is a bit 
+more flexible when Object types are involved. It allows type mismatch 
+for <EM>ByRef</EM> Object parameters. 
+<p>Let's now follow an example. Consider the following code:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td width='20pt'><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Sub</font> MyMethod()
+    <font color="#000080">Dim</font> MyObj <font color="#000080">As</font> CMyClass
+    <font color="#000080">Set</font> MyObj = New CMyClass
+    ReleaseObj MyObj
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+
+<font color="#000080">Sub</font> ReleaseObj(<font color="#000080">ByRef</font> Obj <font color="#000080">As</font> Object)
+    <font color="#000080">Set</font> Obj = Nothing
+<font color="#000080">End</font> <font color="#000080">Sub</font></pre></code>
+</td></tr></table>
+
+<p>This code is compilable, and VB accepts it. 
+But the fact is the "exact type matching" rule for <EM>ByRef</EM> parameters
+still holds. VB simply does something like the following behind the scene:
+<table border="0" cellpadding=0 width="100%"> <tr valign="top"><td width='20pt'><td bgcolor=#F0F0F0>
+<code><pre>
+<font color="#000080">Sub</font> MyMethod()
+    <font color="#000080">Dim</font> MyObj <font color="#000080">As</font> CMyClass
+    <font color="#000080">Set</font> MyObj = New CMyClass
+    
+    <font color="#000080">Dim</font> objTmp <font color="#000080">As</font> Object
+    <font color="#000080">Set</font> objTmp = MyObj
+    ReleaseObj objTmp
+    <font color="#000080">Set</font> MyObj = objTmp
+<font color="#000080">End</font> <font color="#000080">Sub</font>
+</pre></code>
+</td></tr></table>
+
+<p><EM>Note that assigning to an object variable a reference to another object 
+involves more than just copying pointers if object types are different. 
+VB makes <EM>QueryInterface</EM> call to retrieve the interface pointer.  </EM>
+<p>That's why it all works - VB actually sends temporary variable of Object type
+as an argument, and after returning assigns the return value back to local variable.  
+<p>So far all this works OK, and <EM>MyObj</EM> variable will be set to <EM>Nothing</EM> at the
+end of the method. But suppose <EM>ReleaseObj</EM> method does not return normally,
+but raises error at the end. Then the operator that re-assigns returned value 
+to <EM>MyObj</EM> is not executed! The main result is the following: 
+<EM>ByRef</EM> <EM>Object</EM> parameters don't behave like <EM>ByRef</EM> if method raises error. 
+<p>Finally let's return to our original problem: is it possible to use
+<EM>ByRef DbObject</EM> parameter of <EM>ErrorIn</EM> to set caller variable
+method to <EM>Nothing</EM>. As you see now, the answer is NO, 
+because <EM>ErrorIn</EM> re-raises errors. 
+To change the caller's variable method MUST return normally - this is
+what <EM>ErrRlsObjs</EM> is doing, and it successfully clears all variables provided
+as arguments. <EM>Connection</EM> object is preserved inside HuntERR and carried till
+<EM>ErrorIn</EM> can make use of it and finally clear it. 
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="V30New" />
+<h3>A3. Version 3.0 New Features</h3>
+<p>
+
+  <OL>
+	<LI><p><b>Preserving Original Error Number.</b> <EM>ErrorIn</EM> in v3.0 doesn't use 
+	<EM>ERR_STACK_TRACE</EM> reserved error number for stack unwinding, 
+	but re-raises the original error number. Stack unwinding (error propagation) is identified 
+	by reserved value "HuntERR.ErrorIn" of <EM>Err.Source</EM> property. 
+	Re-raising original error number makes it easier to catch and process 
+	specific errors in application	code.				
+
+	<LI><p><b>API Errors Support.</b> <EM>ErrorIn</EM> automatically adds 
+	API error number and description to error report if error occurs in API call. 
+	API error number is returned by <EM>GetLastError</EM> API function 
+	(<EM>Err.LastDLLError</EM> property in VB). If this number is not 
+	zero <EM>ErrorIn</EM> retrieves error description using 
+	<EM>FormatMessage</EM> API function, and adds this information to error report.  
+			
+	<LI><p><b>System Exceptions Handling.</b> <STRONG>HuntERR</STRONG> is now able 
+	to handle severe application faults like "Access Violation". 
+	These faults (system exceptions) normally result in application crash, even with error 
+	handlers in place. Now your application can use <STRONG>HuntERR</STRONG> to catch this fault in 
+	custom exception handler, and then handle it as any other "standard" VB error. 
+	Additionally, <EM>ErrorIn</EM> automatically restores default system handler 
+	if custom exception handler was set by application.   
+			
+	<LI><p><b>Extensibility.</b> HuntERR now makes it possible for you to add support
+	for custom COM Servers that you use in your application. 
+	You provide extractor class that knows how to extract error information from
+	custom object, and HuntERR includes this information into error report, 
+	the same way it does this with ADO objects. 
+			
+	<LI><p><b>MSXML Library Support.</b> This feature is implemented as 
+	<STRONG>Hunt<EM>ERR</EM></STRONG> extension.
+	We provide <EM>ujEEDomDoc.cls</EM> class that is used as error extractor for 
+	MSXML DOMDocument object.
+			
+	<LI><p><b>VB6 Add-In.</b> HuntERR provides VB6 Add-In that makes adding error handler 
+	to new method a one-click task. 
+			
+	<LI><p><b>Migrating existing code.</b> HuntERR Add-In provides a command allowing 
+	to add <STRONG>HuntERR</STRONG>-style error handlers to all methods in a program module. 
+					  			
+			
+	<LI><p><b>Line Numbers Support.</b> Added support for line numbers 
+	- undocumented feature in VB, artifact from very old times but still supported in 
+	VB 6. If troubled operator has line number, it will be shown after method signature in trace block. In some situations line 
+	numbering may be the easiest solution for identifying the failed operator.
+
+	<LI><p><b>Conditional compilation. </b> HuntERR uses conditional 
+	compilation feature of VB to adjust source code to specific environment, 
+	like use/not use COM+. Enumerations <EM>ENUM_ERRMAP</EM> and <EM>ENUM_ERROR_ACTION</EM>
+	 are not commented and by default included into compiled code, 
+	so HuntERR30.Bas is ready for use right a way. 
+			
+	<LI><p><b>Provision for concurrent access to error file</b>. <EM>ErrSaveToFile</EM> function that 
+	appends error report to text file now makes provision for the situation when several 
+	components are trying to open it concurrently. If it fails to open error file for the first time 
+	it 	will keep trying for 100 milliseconds before giving up.
+	
+	<LI><p><b>Automatically logging notification to event log</b> when failed to save error report to 
+	database. If <EM>ErrSaveToDB</EM> function fails to save error report to database it automatically logs
+	failure notification message to event log. 
+	
+	<LI><p><b>Improved Error Report Layout.</b> The error report layout is changed to 
+	more compact and readable format. 			
+	
+	<LI><p><b>ADO Library Is Not Required</b> anymore. All ADO objects in HuntERR code 
+	are declared using Object VB type. As a result, code is compilable in applications that
+	don't use ADO, and thus don't reference ADO libraries in project file. The same is true 
+	for COM+ and IIS-related libraries and objects.
+			
+	<LI><p><b>General library's public interface improvements</b>. Several unimportant and less
+	relevant functions are removed. Some other useful functions are added. 
+			  
+	<LI><p><b>Structure of database table for error logging</b> is simplified. 
+			    
+	<LI><p><b>Various internal code improvements.</b> 
+
+	<LI><p><b>Commented list of public members</b> is included at the beginning of HuntERR30.Bas
+	module for easier references.
+
+	<LI><p><b>HuntERR Reference</b>. We provide <EM>HuntERR Reference</EM> where 
+	you can find detailed information about	all public methods in the library.    
+			
+  </OL>
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+<A Name="V31New" />
+<h3>A4. Version 3.1 New Features</h3>
+<p>
+<OL>
+	<LI><EM>ErrorIn</EM> does not release system exception handler automatically. We recommend
+	to set this handler once for the lifetime of the application. 
+	<LI>New flag <EM>EA_CONN_CLOSE</EM>; if flag is set in <EM>ErrorAction</EM> parameter <EM>ErrorIn</EM> automatically
+	closes the connection.  
+	<LI><EM>ErrorIn</EM> reports the result of attempts to abort the transaction and to 
+	close the connection. 
+	<LI><EM>ErrorIn</EM> automatically reports connection string information. 
+	<LI>ADO Library Version is included into error report automatically. 
+	<LI>Parameter values longer than 40 chars, or containing CRLF are shown 
+	on separate lines in error report.
+	<LI>Special formatting is automatically applied to XML strings, so that they 
+	are shown in error report with line breaks and proper indentation
+	<LI><EM>ErrorIn</EM> automatically detects loss of error information and puts a message
+	into error description
+	<LI><EM>Check</EM> Sub functionality extensions: parameterized description, messages 
+	 accumulation, and automatic retrieval of messages from application-provided 
+	 <EM>MessageSource</EM> object.
+	<LI><EM>EA_WEBINFO</EM> flag is included into <EM>EA_DEFAULT</EM> flag set, so <EM>ErrorIn</EM> now automatically
+	reports WEB-related information. 
+	<LI>Closing open files functionality. 
+	<LI>Releasing objects functionality. 
+	<LI>Stopping on error in IDE functionality. 
+	<LI>Error Logging to Oracle database. 
+	<LI>HuntERR predefines several exception numbers and <EM>ErrorAction</EM> constants 
+	for your convenience.   
+</OL>
+<p><EM>Note: Error Recovery functionality shown in 3.1 Preview version 
+had been dropped in 3.1 Release.</EM> 	 
+
+<table border="0" cellpadding=0 width="100%"> <tr><td><td align=right>
+<a href="#Contents">Contents</a>
+</table>
+
+
+<br>
+<HR SIZE="2"  width="100%" align="left">
+<p><font size=1 color="#666666">
+	Copyright URFIN JUS <a href="http://www.urfinjus.net"><font size=1>(www.urfinjus.net)</font></a>, 
+	        2001-2002. All rights reserved.
+
+
+
+
+
+</body>
+</html>
+
+<!--
+  
+
+-->
