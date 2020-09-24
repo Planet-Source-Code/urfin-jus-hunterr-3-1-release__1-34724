@@ -1,0 +1,8 @@
+frmMain = 105, 146, 1015, 898, , 253, 365, 1000, 915, C
+CTestClass = 129, 294, 913, 996, C
+CDemoMsgSrc = 57, 122, 927, 938, C
+modCommon = 51, 26, 864, 728, C
+HuntERR31 = 22, 22, 837, 772, 
+HuntERR31SysH = 0, 0, 0, 0, C
+frmShowError = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+ujEEDomDoc = 0, 0, 0, 0, C
